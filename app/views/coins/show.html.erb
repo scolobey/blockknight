@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @coin.name %>
+</p>
+
+<p>
+  <strong>Ticker:</strong>
+  <%= @coin.ticker %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @coin.description.html_safe %>
+</p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @coin.team %>
+</p>
+
+<%= link_to 'Edit', edit_coin_path(@coin) %> |
+<%= link_to 'Back', coins_path %>
