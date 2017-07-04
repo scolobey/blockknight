@@ -1,4 +1,4 @@
-task :load_phrases => :environment do
+task :check_prices => :environment do
   require 'httparty'
 
   @response = HTTParty.get('https://api.coinmarketcap.com/v1/ticker/')
