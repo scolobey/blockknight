@@ -44,11 +44,5 @@ test:
 #
 # You can use this database configuration with:
 #
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
-#
-production:
-  <<: *default
-  database: block-knight_production
-  username: block-knight
-  password: <%= ENV['BLOCK-KNIGHT_DATABASE_PASSWORD'] %>
+  production:
+    url: <%= ENV['DATABASE_URL'] %>
