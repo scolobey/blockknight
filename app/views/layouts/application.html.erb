@@ -3,18 +3,45 @@
   <head>
     <title>BlockKnight</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <div class='header'>
-        <%= render 'layouts/header' %>
+    <p id="notice"><%= notice %></p>
+
+    <div class="site-wrap">
+
+      <div class='header'>
+          <%= render 'layouts/header' %>
+      </div>
+
+      <div class='main'>
+          <%= yield %>
+      </div>
+
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+      <label for="nav-trigger"></label>
+
+      <ul class="navigation">
+        <% if current_user %>
+          <li class="nav-item"><%= current_user.email %></li>
+          <hr>
+          <br>
+          <li class="nav-item"><%= link_to "Logout", '/logout' %></li>
+        <% else %>
+          <br>
+          <li class="nav-item"><%= link_to 'Login', '/login' %></li>
+          <br>
+          <li class="nav-item"><%= link_to 'Signup', '/signup' %></li>
+        <% end %>
+        <br>
+        <li class="nav-item"><a href="/about">About</a></li>
+      </ul>
+
     </div>
 
-    <div class='main'>
-        <%= yield %>
-    </div>
   </body>
+
 </html>

@@ -2,26 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.content {
-  border-radius: 5px;
-  top: 20px;
-  padding: 30px;
-}
-
-caption {
-  text-align: left;
-  color: #C0C0C0;
-}
-
 table {
-  position: relative;
-  top: 50px;
   border-collapse: collapse;
+  font-family: "Palatino";
 }
 
 th {
-    font-size: 8px;
-    left: 25px;
+    font-size: 12px;
     text-align: left;
     color: #f4bc26;
 }

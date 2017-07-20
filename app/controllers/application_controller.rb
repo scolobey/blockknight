@@ -9,4 +9,9 @@ class ApplicationController < ActionController::Base
   def authorize
     redirect_to '/login' unless current_user
   end
+
+  def menu_opened
+    true
+  end
+  helper_method :menu_opened
 end

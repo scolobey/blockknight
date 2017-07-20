@@ -1,24 +1,6 @@
 
-<section class="navigation">
-  <div class="nav-container">
-    <div class="brand">
-      <a href="/"><img src='/blockKnight.gif' height="120"></a>
-    </div>
-
-    <nav>
-      <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
-      <ul class="nav-list">
-        <li>
-          <a href="/about">About</a>
-        </li>
-        <li>
-          <% if current_user %>
-            Signed in as <%= current_user.email %> | <%= link_to "Logout", '/logout' %>
-          <% else %>
-            <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
-          <% end %>
-        </li>
-      </ul>
-    </nav>
+<div class="header">
+  <div class="brand">
+    <a href="/"><img src='/blockKnight.gif' height="80"><h1>Blockknight.com</h1></a>
   </div>
-</section>
+</div>

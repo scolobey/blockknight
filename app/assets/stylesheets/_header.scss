@@ -1,136 +1,37 @@
-$content-width: 1000px;
-$breakpoint: 800px;
-$nav-height: 120px;
-$nav-background: #ffffff;
-$nav-font-color: #34aedc;
+
+$header-height: 100px;
+$header-background: #ffffff;
+$header-font-color: #34aedc;
 $link-hover-color: #5856d6;
 
-.navigation {
-  height: $nav-height;
-  background: $nav-background;
-  border-radius: 5px;
-  margin-left: 100px;
-  margin-right: 100px;
-  box-shadow: -3px 3px 2px #888888;
+.header {
+  height: $header-height;
+  background: $header-background;
+  position: absolute;
+  top: 0px;
+  width: 100%;
 }
 
 // Logo and branding
 .brand {
   position: absolute;
-  top: 25px;
-  left: 175px;
+  top: 0px;
+  left: 75px;
   float: left;
-  line-height: $nav-height;
-  font-size: 1.4em;
-  a,
+  line-height: $header-height;
+  h1 {
+    position: absolute;
+    top: 0px;
+    left: 75px;
+    font-family: "Copperplate";
+    font-size: 24px;
+    color: black;
+  }
   a:visited {
-    color: $nav-font-color;
+    color: $header-font-color;
     text-decoration: none;
     &:hover {
-      background-color: #ffffff;
+      background-color: $header-background;
     }
-  }
-}
-
-// Container with no padding for navbar
-.nav-container {
-  margin-left: 100px;
-  margin-right: 100px;
-}
-
-// Navigation
-nav {
-  float: right;
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    li {
-      float: left;
-      position: relative;
-      font-weight: bold;
-      font-family: ‘Courier New’, Courier, monospace;
-      font-size: 30px;
-      a,
-      a:visited {
-        display: block;
-        padding: 70px 60px;
-        color: $nav-font-color;
-        max-height: 20px ;
-        text-decoration: none;
-        &:hover {
-          background-color: transparent;
-          color: #f4bc26;
-        }
-      }
-      .field {
-        color: $nav-font-color;
-        font-size: 12px;
-        margin: 0px;
-        position: relative;
-        top: 20px;
-        input {
-            display: inline-block;
-            position: relative;
-            top: -3em;
-        }
-        label {
-            display: inline-block;
-            padding-top: 3px;
-        }
-      }
-      .actions {
-        position: relative;
-        top: 10px;
-      }
-    }
-  }
-}
-
-// Dropdown list binds to JS toggle event
-.nav-dropdown {
-  position: absolute;
-  display: none;
-  z-index: 1;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Mobile navigation */
-
-// Binds to JS Toggle
-.nav-mobile {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: $nav-background;
-  height: $nav-height;
-  width: $nav-height;
-}
-@media only screen and (max-width: $breakpoint) {
-  // Hamburger nav visible on mobile only
-  .nav-mobile {
-    display: block;
-  }
-  nav {
-   width: 100%;
-    padding: $nav-height 0 15px;
-    ul {
-      display: none;
-      li {
-        float: none;
-        a {
-          padding: 15px;
-          line-height: 20px;
-          font-size: 36px !important;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (min-width: $breakpoint) {
-  .nav-list {
-    display: block !important;
   }
 }
