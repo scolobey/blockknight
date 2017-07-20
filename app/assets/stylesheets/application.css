@@ -30,9 +30,11 @@
  }
 
  .main {
-   margin: 50px;
-   position: absolute;
-   top: 120px;
+   display: block;
+   margin: auto;
+   width: 65%;
+   position: relative;
+   top: 160px;
    background-color: #22537a;
  }
 
