@@ -15,6 +15,11 @@
  *= require material_icons
  */
 
+ body {
+     overflow-x: hidden;
+     background-color: #22537a;
+ }
+
  #notice {
    color: #dd3b4c;
  }
@@ -38,6 +43,17 @@
    background-color: #22537a;
  }
 
+.nav-underlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #5856d6;
+  opacity: 0.5;
+  z-index: 2;
+}
+
 .navigation {
     font-family: "Palatino";
     font-size: 24px;
@@ -47,12 +63,12 @@
     width: 300px;
     height: 100%;
     right: 0px;
-    top: -20px;
+    top: -30px;
     padding: 30px;
     box-shadow: -1px 0px 1px 1px #111;
     padding-top: 100px;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
 }
 
 .navigation a {
@@ -84,7 +100,7 @@ label[for="nav-trigger"] {
     position: fixed;
     top: 30px;
     right: 45px;
-    z-index: 2;
+    z-index: 3;
     width: 50px;
     height: 50px;
     cursor: pointer;
@@ -93,14 +109,27 @@ label[for="nav-trigger"] {
 }
 
 input[type=checkbox]:not(:checked) ~ .navigation {
-    right: -375px;
+    right: -100%;
+}
+
+input[type=checkbox]:not(:checked) ~ .nav-underlay {
+    left: 100%;
+}
+
+input[type=checkbox]:checked ~ .nav-underlay {
+    overflow: hidden;
+}
+
+input[type=checkbox]:checked ~ .site-wrap {
+    position: fixed;
 }
 
 input[type=checkbox]:checked ~ label[for="nav-trigger"] {
     background-image: url("/close.png");
 }
 
-body {
-    overflow-x: hidden;
-    background-color: #22537a;
-}
+/*input[type=checkbox]:checked ~ .navigation {
+    background-color: blue;
+    z-index: 4;
+    width: 100%;
+}*/

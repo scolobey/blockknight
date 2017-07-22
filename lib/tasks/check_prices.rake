@@ -5,6 +5,6 @@ task :check_prices => :environment do
 
   Coin.delete_all()
   @response.each do|coin|
-    Coin.create({name: coin["name"], ticker: coin["symbol"], price: coin["price_usd"]})
+    Coin.create({name: coin["name"], ticker: coin["symbol"], price: coin["price_usd"], percent_change: coin["percent_change_24h"]})
   end
 end

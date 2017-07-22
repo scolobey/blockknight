@@ -7,7 +7,8 @@ $link-hover-color: #5856d6;
 .header {
   height: $header-height;
   background: $header-background;
-  position: absolute;
+  position: fixed;
+  z-index: 1;
   top: 0px;
   width: 100%;
 }
