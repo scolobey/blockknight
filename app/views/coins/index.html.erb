@@ -15,7 +15,11 @@
           <td><%= link_to coin.name, coin %></td>
           <td><%= coin.ticker %></td>
           <td><%= coin.price %></td>
-          <td><%= coin.percent_change %></td>
+          <% if coin.increased? %>
+            <td style="color: #2dc0ca;"><%= coin.percent_change %></td>
+          <% else %>
+            <td style="color: #dd3b4c;"><%= coin.percent_change %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
