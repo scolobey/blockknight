@@ -11,13 +11,38 @@
 </p>
 
 <p>
+  <strong>Price:</strong>
+  <%= @coin.price %>
+</p>
+
+<p>
+  <strong>24 Hour Movement:</strong>
+  <%= @coin.percent_change %>
+</p>
+
+<p>
   <strong>Description:</strong>
-  <%= @coin.description.html_safe %>
+  <%= @coin.description %>
+</p>
+
+<p>
+  <strong>Key Value Proposition:</strong>
+  <%= @coin.key_value_proposition %>
 </p>
 
 <p>
   <strong>Team:</strong>
   <%= @coin.team %>
+</p>
+
+<p>
+  <strong>Supply:</strong>
+  <%= @coin.supply %>
+</p>
+
+<p>
+  <strong>Community:</strong>
+  <%= @coin.community %>
 </p>
 
 <%= link_to 'Edit', edit_coin_path(@coin) %> |
