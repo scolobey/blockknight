@@ -15,6 +15,21 @@
  *= require material_icons
  */
 
+
+ /*Pallette
+ //aqua
+ color: #2dc0ca;
+ //blue suede
+ color: #22537a;
+ //raspberry
+ color: #dd3b4c;
+ // purple
+ color: #5856d6;
+ //yellow
+ color: #f4bc26;
+ //blue
+ color: #34aedc; */
+
  body {
      overflow-x: hidden;
      background-color: #22537a;
