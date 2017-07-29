@@ -45,20 +45,6 @@ td {
   width: 100%;
   height: 100%;
   margin: auto;
-  strong {
-    // //aqua
-    // color: #2dc0ca;
-    // //blue suede
-    color: #22537a;
-    // //raspberry
-    // color: #dd3b4c;
-    // // purple
-    // color: #5856d6;
-    // //yellow
-    // color: #f4bc26;
-    // //blue
-    // color: #34aedc;
-  }
   .coin-head {
     height: 55px;
     border-radius: 5px 5px 0px 0px;
@@ -68,11 +54,22 @@ td {
       position: absolute;
       left: 20px;
       @include vertical-align();
+      .coin-title {
+        font-size: 24px;
+      }
+      .coin-symbol {
+        color: #34aedc;
+        font-size: 18px;
+      }
     }
     .coin-head-right {
       position: absolute;
       right: 20px;
       top: 20px;
+      .coin-price {
+        color: #5856d6;
+        font-size: 20px;
+      }
     }
   }
 

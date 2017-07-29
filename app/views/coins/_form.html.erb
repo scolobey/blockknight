@@ -22,6 +22,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :supply %>
+    <%= form.text_area :supply, id: :supply %>
+  </div>
+
+  <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description, id: :coin_description %>
   </div>
@@ -29,6 +34,16 @@
   <div class="field">
     <%= form.label :team %>
     <%= form.text_area :team, id: :coin_team %>
+  </div>
+
+  <div class="field">
+    <%= form.label :key_value_proposition %>
+    <%= form.text_area :key_value_proposition, id: :key_value_proposition %>
+  </div>
+
+  <div class="field">
+    <%= form.label :twitter %>
+    <%= form.text_area :twitter, id: :twitter %>
   </div>
 
   <div class="actions">

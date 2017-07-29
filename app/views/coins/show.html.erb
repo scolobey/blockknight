@@ -3,13 +3,13 @@
 
   <div class="coin-head">
     <div class="coin-head-left">
-      <b style="font-size: 24px;"><%= @coin.name %></b>
-      <br> 
-      <b style="color: #34aedc; font-size: 18px;">(<%= @coin.ticker %>)</b>
+      <div class="coin-title"><%= @coin.name %></div>
+      <br>
+      <div class="coin-symbol">(<%= @coin.ticker %>)</div>
     </div>
 
     <div class="coin-head-right">
-      <b style="color: #5856d6; font-size: 20px;"><%= @coin.price %>$</b>
+      <div class="coin-price"><%= @coin.price %>$</div>
       <br>
       <% if @coin.increased? %>
         <b style="color: #2dc0ca;">+<%= @coin.percent_change %>%</b>
@@ -20,6 +20,11 @@
       <% end %>
     </div>
   </div>
+
+  <p>
+    <strong>Supply:</strong>
+    <%= @coin.supply %>
+  </p>
 
   <p>
     <strong>Description:</strong>
@@ -37,13 +42,12 @@
   </p>
 
   <p>
-    <strong>Supply:</strong>
-    <%= @coin.supply %>
+    <strong>Team:</strong>
+    <%= @coin.team %>
   </p>
-
   <p>
-    <strong>Community:</strong>
-    <%= @coin.community %>
+    <strong>Twitter:</strong>
+    <%= @coin.twitter %>
   </p>
 
   <%= link_to 'Edit', edit_coin_path(@coin) %> |
