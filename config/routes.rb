@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :feed_items
   resources :users
   root "coins#index"
   resources :coins
