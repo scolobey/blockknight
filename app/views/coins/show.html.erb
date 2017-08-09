@@ -3,7 +3,7 @@
 
   <div class="coin-head">
     <div class="coin-head-left">
-      <div class="coin-title"><%= @coin.name %></div>
+      <b><div class="coin-title"><%= @coin.name %></div></b>
       <br>
       <div class="coin-symbol">(<%= @coin.ticker %>)</div>
     </div>
@@ -21,30 +21,43 @@
     </div>
   </div>
 
-  <p>
-    <strong>Supply:</strong>
-    <%= @coin.supply %>
-  </p>
 
-  <p>
-    <strong>Description:</strong>
-    <%= @coin.description %>
-  </p>
+  <div class="coin-body">
+    <p>
+      <strong>Description:</strong>
+      <%= @coin.description %>
+    </p>
 
-  <p>
-    <strong>Key Value Proposition:</strong>
-    <%= @coin.key_value_proposition %>
-  </p>
+    <p>
+      <strong>Key Value Proposition:</strong>
+      <%= @coin.key_value_proposition %>
+    </p>
 
-  <p>
-    <strong>Team:</strong>
-    <%= @coin.team %>
-  </p>
+    <p>
+      <strong>Supply:</strong>
+      <%= @coin.supply %>
+    </p>
 
-  <p>
-    <strong>Twitter:</strong>
-    <%= @coin.twitter %>
-  </p>
+    <p>
+      <strong>Team:</strong>
+      <%= @coin.team %>
+    </p>
+
+    <p>
+      <strong>Twitter:</strong>
+      <%= @coin.twitter %>
+    </p>
+
+    <p>
+      <strong>Concerns:</strong>
+      <%= @coin.concerns %>
+    </p>
+
+    <p>
+      <strong>Community:</strong>
+      <%= @coin.community %>
+    </p>
+  </div>
 
   <%= link_to 'Edit', edit_coin_path(@coin) %> |
   <%= link_to 'Back', coins_path %>

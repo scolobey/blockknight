@@ -25,5 +25,15 @@
   <%= @feed_item.content %>
 </p>
 
+<p>
+  <strong>Concerns:</strong>
+  <%= @feed_item.concerns %>
+</p>
+
+<p>
+  <strong>Community:</strong>
+  <%= @feed_item.community %>
+</p>
+
 <%= link_to 'Edit', edit_feed_item_path(@feed_item) %> |
 <%= link_to 'Back', feed_items_path %>
