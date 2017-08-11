@@ -19,6 +19,7 @@ class CoinsController < ApplicationController
 
   # GET /coins/1/edit
   def edit
+    admin_authorize
   end
 
   # POST /coins
