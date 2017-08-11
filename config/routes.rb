@@ -10,4 +10,8 @@ Rails.application.routes.draw do
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
+
+  namespace :admin do
+    get '', to: 'dashboard#index', as: '/'
+  end
 end

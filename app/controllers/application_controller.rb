@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
     redirect_to '/login' unless current_user
   end
 
+  def admin_authorize
+    redirect_to '/login' unless current_user.try(:admin?)
+  end
+
   def menu_opened
     true
   end
