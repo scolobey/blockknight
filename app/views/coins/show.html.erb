@@ -57,6 +57,18 @@
       <strong>Community:</strong>
       <%= @coin.community %>
     </p>
+
+    <p>
+      <strong>Community:</strong>
+      <br>
+      <% @coin.feed_items.each do |item|%>
+        <% if item.approved? %>
+          <a href=<%= item.url %>><%= item.title %></a>
+          <img height="140" width="140" src=<%= item.image %>>
+          <br>
+        <% end %>
+      <% end %>
+    </p>
   </div>
 
   <%= link_to 'Edit', edit_coin_path(@coin) %> |
