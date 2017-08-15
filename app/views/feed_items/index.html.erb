@@ -1,35 +1,44 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Feed Items</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Image</th>
-      <th>Approved</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @feed_items.each do |feed_item| %>
+<h1>News Feed</h1>
+<%= form_tag(approve_checked_feed_items_path) do%>
+  <%= submit_tag "Approve Checked" %>
+  <br>
+  <br>
+  <table>
+    <thead>
       <tr>
-        <td><%= feed_item.title %></td>
-        <td><%= feed_item.description %></td>
-        <td><img src=<%= feed_item.image %>></td>
-        <td><%= feed_item.approved %></td>
-        <td><%= feed_item.content %></td>
-        <td><%= link_to 'Show', feed_item %></td>
-        <td><%= link_to 'Edit', edit_feed_item_path(feed_item) %></td>
-        <td><%= link_to 'Destroy', feed_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Coin</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Approved</th>
+        <th>Content</th>
+        <th colspan="3"></th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+      <tbody>
+        <% @feed_items.each do |feed_item| %>
+          <tr>
+            <td><%= feed_item.coin.ticker %></td>
+            <td><a href=<%= feed_item.url %>><%= feed_item.title %></a></td>
+            <td><%= feed_item.description %></td>
+            <td><img height="140" width="140" src=<%= feed_item.image %>></td>
+            <td><%= feed_item.approved %></td>
+            <td><%= feed_item.content %></td>
+            <td><%= link_to 'Show', feed_item %></td>
+            <td><%= link_to 'Edit', edit_feed_item_path(feed_item) %></td>
+            <td><%= link_to 'Destroy', feed_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= check_box_tag "feed_item_ids[]", feed_item.id, feed_item.approved? %></td>
+          </tr>
+        <% end %>
+      </tbody>
 
-<%= link_to 'New Feed Item', new_feed_item_path %>
+    </table>
+
+  <br>
+
+  <%= submit_tag "Approve Checked" %>
+<% end %>

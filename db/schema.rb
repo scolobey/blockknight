@@ -28,16 +28,16 @@ ActiveRecord::Schema.define(version: 20170811023557) do
     t.text "concerns"
   end
 
-  create_table "feed_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "title"
-    t.text "description"
-    t.text "image"
+  create_table "feed_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.string "title", collation: "utf8_general_ci"
+    t.text "description", collation: "utf8_general_ci"
+    t.text "image", collation: "utf8_general_ci"
     t.boolean "approved"
-    t.text "content"
+    t.text "content", collation: "utf8_general_ci"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "coin_id"
-    t.string "url"
+    t.string "url", collation: "utf8_general_ci"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

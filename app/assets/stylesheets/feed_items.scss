@@ -1,0 +1,26 @@
+// Place all the styles related to the FeedItems controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+input[type=checkbox] {
+  transform: scale(2);
+}
+
+.news-box {
+
+  .news-item {
+    display: inline-block;
+    position: relative;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    height: 350px;
+    top: 0px;
+    box-shadow: 5px 5px 2px grey;
+    background-image: linear-gradient(#f4bc26, orange);
+    img {
+      padding-top: 10px;
+    }
+  }
+}

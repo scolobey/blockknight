@@ -4,7 +4,7 @@ class FeedItemsController < ApplicationController
   # GET /feed_items
   # GET /feed_items.json
   def index
-    @feed_items = FeedItem.all
+    @feed_items = FeedItem.where({approved: nil}).order(:coin_id)
   end
 
   # GET /feed_items/1
@@ -59,6 +59,20 @@ class FeedItemsController < ApplicationController
       format.html { redirect_to feed_items_url, notice: 'Feed item was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def approve_checked
+    puts params[:feed_item_ids]
+
+    FeedItem.all.each do |item|
+      item.update_attributes({approved: false});
+    end
+
+    FeedItem.find(params[:feed_item_ids]).each do |item|
+      item.update_attributes({approved: true});
+    end
+
+    redirect_to feed_items_path
   end
 
   private

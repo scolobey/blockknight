@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :feed_items do
+    collection do
+      post 'approve_checked'
+    end
+  end
+
   resources :users
   root "coins#index"
   resources :coins
