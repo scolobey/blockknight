@@ -82,6 +82,24 @@ td {
     strong {
       color: #5856d6;
     }
+    .news-box {
+
+      .news-item {
+        display: inline-block;
+        position: relative;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 10px;
+        width: 200px;
+        height: 350px;
+        top: 0px;
+        box-shadow: 5px 5px 2px grey;
+        background-image: linear-gradient(#f4bc26, orange);
+        img {
+          padding-top: 10px;
+        }
+      }
+    }
   }
 
 }

@@ -10,6 +10,7 @@ class CoinsController < ApplicationController
   # GET /coins/1
   # GET /coins/1.json
   def show
+    @news_items = @coin.feed_items.order(created_at: :desc).first(4)
   end
 
   # GET /coins/new

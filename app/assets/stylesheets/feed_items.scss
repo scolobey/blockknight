@@ -6,21 +6,26 @@ input[type=checkbox] {
   transform: scale(2);
 }
 
-.news-box {
+.update_news_button {
+  background-color: #dd3b4c; 
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
 
-  .news-item {
-    display: inline-block;
-    position: relative;
+.approve_button {
+    background-color: #2dc0ca; /* Green */
+    border: none;
     border-radius: 5px;
-    padding: 10px;
-    margin: 10px;
-    width: 200px;
-    height: 350px;
-    top: 0px;
-    box-shadow: 5px 5px 2px grey;
-    background-image: linear-gradient(#f4bc26, orange);
-    img {
-      padding-top: 10px;
-    }
-  }
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
 }

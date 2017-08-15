@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :feed_items do
     collection do
       post 'approve_checked'
+      post 'update_news'
     end
   end
 

@@ -3,7 +3,7 @@ task :news => :environment do
   require 'open-uri'
 
   FeedItem.delete_all
-#How do I do this shit asynchronously?
+
   Coin.find_in_batches(batch_size: 100) do |group|
 
     group.each do |record|
@@ -33,9 +33,5 @@ task :news => :environment do
     sleep(30)
 
   end
-
-"/url?q=https://www.forbes.com/sites/cbovaird/2017/08/11/bitcoin-swings-for-the-fences/&sa=U&ved=0ahUKEwiI3e_d_NDVAhUKiFQKHTtgAJkQqQIIFigAMAA&usg=AFQjCNHcadF-Lbk5A5DNky_9tH9hfwnGDQ"
-
-
 
 end

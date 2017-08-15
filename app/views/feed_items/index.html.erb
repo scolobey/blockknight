@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>News Feed</h1>
+<h1>News Feed</h1>  <%= button_to "Update News", action: "update_news", class: "update_news_button" %>
 <%= form_tag(approve_checked_feed_items_path) do%>
-  <%= submit_tag "Approve Checked" %>
+  <%= submit_tag "Approve Checked", class: "approve_button" %>
   <br>
   <br>
   <table>
@@ -40,5 +40,5 @@
 
   <br>
 
-  <%= submit_tag "Approve Checked" %>
+  <%= submit_tag "Approve Checked", class: "approve_button" %>
 <% end %>
