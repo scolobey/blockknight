@@ -59,15 +59,18 @@
     </p>
 
     <p>
-      <strong>Community:</strong>
+      <strong>News:</strong>
       <br>
-      <% @coin.feed_items.each do |item|%>
-        <% if item.approved? %>
-          <a href=<%= item.url %>><%= item.title %></a>
-          <img height="140" width="140" src=<%= item.image %>>
-          <br>
+      <div class="news-box">
+        <% @coin.feed_items.each do |item|%>
+          <% if item.approved? %>
+            <div class="news-item">
+              <a href=<%= item.url %>><%= item.title %></a>
+              <img height="200" width="200" src=<%= item.image %>>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </p>
   </div>
 
