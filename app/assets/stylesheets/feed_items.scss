@@ -2,12 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+h1 {
+  font-size: 18px;
+}
 input[type=checkbox] {
   transform: scale(2);
 }
 
 .update_news_button {
-  background-color: #dd3b4c; 
+  background-color: #dd3b4c;
   border: none;
   border-radius: 5px;
   color: white;

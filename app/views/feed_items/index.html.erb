@@ -5,6 +5,11 @@
   <%= submit_tag "Approve Checked", class: "approve_button" %>
   <br>
   <br>
+  <h1>
+    <%= paginate @feed_items %>
+    <%= page_entries_info @feed_items %>
+  </h1>
+  <br>
   <table>
     <thead>
       <tr>
@@ -37,6 +42,13 @@
       </tbody>
 
     </table>
+
+    <br>
+    <h1>
+      <%= paginate @feed_items %>
+      <%= page_entries_info @feed_items %>
+    </h1>
+    </br>
 
   <br>
 

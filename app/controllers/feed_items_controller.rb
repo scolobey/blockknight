@@ -1,10 +1,11 @@
 class FeedItemsController < ApplicationController
   before_action :set_feed_item, only: [:show, :edit, :update, :destroy]
+  before_action :get_items, :except => [:create, :show, :update, :destroy]
 
   # GET /feed_items
   # GET /feed_items.json
   def index
-    @feed_items = FeedItem.where({approved: nil}).order(:coin_id)
+
   end
 
   # GET /feed_items/1
@@ -64,7 +65,7 @@ class FeedItemsController < ApplicationController
   def approve_checked
     puts params[:feed_item_ids]
 
-    FeedItem.all.each do |item|
+    @feed_items.each do |item|
       item.update_attributes({approved: false});
     end
 
@@ -113,6 +114,11 @@ class FeedItemsController < ApplicationController
   end
 
   private
+
+    def get_items
+      @feed_items = FeedItem.where({approved: nil}).order(:coin_id).page params[:page]
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_feed_item
       @feed_item = FeedItem.find(params[:id])
