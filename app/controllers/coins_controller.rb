@@ -63,6 +63,12 @@ class CoinsController < ApplicationController
     end
   end
 
+  def follow
+    puts params[:coin_id]
+    redirect_to request.referrer
+    #
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_coin

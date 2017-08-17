@@ -8,7 +8,12 @@ Rails.application.routes.draw do
 
   resources :users
   root "coins#index"
-  resources :coins
+  resources :coins do
+    collection do
+      post 'follow'
+    end
+  end
+
   get '/about' => 'static_pages#about'
 
   get '/login' => 'sessions#new'

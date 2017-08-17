@@ -17,4 +17,11 @@ describe User do
   it "contains valid email format" do
     FactoryGirl.build(:user, email: "winkledinkle", password: 'butternut')
   end
+
+  it "should follow and unfollow a coin" do
+    dude = FactoryGirl.create(:user, email: "minedied@gmail.com", password: 'butternut')
+    coin  = FactoryGirl.create(:coin)
+
+    dude.coin_relationships.create(coin_id: coin.id).should be_valid
+  end
 end
