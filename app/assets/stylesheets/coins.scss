@@ -84,7 +84,26 @@ td {
       color: #5856d6;
     }
     .follow_button {
+      background-color: #dd3b4c;
+      border: none;
       border-radius: 5px;
+      color: white;
+      padding: 10px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 18px;
+    }
+    .unfollow_button {
+        background-color: #f4bc26; /* Green */
+        border: none;
+        border-radius: 5px;
+        color: white;
+        padding: 10px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 18px;
     }
     .news-box {
       .news-item {

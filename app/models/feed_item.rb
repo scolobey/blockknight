@@ -5,9 +5,9 @@ class FeedItem < ApplicationRecord
   validates :url, presence: true
   validates_with FeedItemValidator
   validates_uniqueness_of :title
-  before_save :truncate_username
+  before_save :truncate_news
 
-  def truncate_username
+  def truncate_news
     self.title = title.slice(0, 255)
     self.url = url.slice(0, 255)
   end

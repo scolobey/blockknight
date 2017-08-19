@@ -64,15 +64,24 @@ class CoinsController < ApplicationController
   end
 
   def follow
-    puts params[:coin_id]
-    redirect_to request.referrer
-    #
+    CoinRelationship.create(coin_id: params[:coin_id], user_id: current_user.id)
+    redirect_back(fallback_location: root_path)
+  end
+
+  def unfollow
+    CoinRelationship.where({coin_id: params[:coin_id], user_id: current_user.id}).destroy_all
+    redirect_back(fallback_location: root_path)
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_coin
       @coin = Coin.find(params[:id])
+      if current_user
+        @followed = @coin.followed?(current_user)
+      else
+        @followed = false
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

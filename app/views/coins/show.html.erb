@@ -24,7 +24,14 @@
 
   <div class="coin-body">
 
-    <%= button_to "Follow", action: "follow"%>
+    <% if @followed %>
+      <%= button_to "unfollow", {action: "unfollow", coin_id: @coin.id, method: :post}, {class:"unfollow_button"} %>
+    <% else %>
+      <%= button_to "follow", {action: "follow", coin_id: @coin.id, method: :post}, {class:"follow_button"} %>
+    <% end %>
+
+
+
     <p>
       <strong>Description:</strong>
       <%= @coin.description %>

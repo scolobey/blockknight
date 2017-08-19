@@ -6,5 +6,8 @@ class CreateCoinRelationships < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
+    add_index :coin_relationships, :user_id
+    add_index :coin_relationships, :coin_id
+    add_index :coin_relationships, [:user_id, :coin_id], unique: true
   end
 end

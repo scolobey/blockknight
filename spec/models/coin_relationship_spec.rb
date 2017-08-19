@@ -6,4 +6,5 @@ describe CoinRelationship do
   end
   it "needs a coin_id"
   it "needs a user_id"
+  it "should disappear when it's owners disappear."
 end
