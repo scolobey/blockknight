@@ -34,7 +34,10 @@
 
     <p>
       <strong>Description:</strong>
-      <%= @coin.description.html_safe() %>
+      <% if @coin.description %>
+        <%= @coin.description.html_safe() %>
+      <% end %>
+
     </p>
 
     <p>
