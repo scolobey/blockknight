@@ -1,3 +1,7 @@
+//create a user
+//register as administrator
+//access admin dashboard
+
 require 'rails_helper'
 
 describe 'site administrator' do

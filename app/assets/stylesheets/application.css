@@ -32,7 +32,7 @@
 
  body {
      overflow-x: hidden;
-     background-color: #22537a;
+     background-color: white;
 
  }
 
@@ -43,7 +43,7 @@
  .site-wrap {
      min-width: 100%;
      min-height: 100%;
-     background-color: #22537a;
+     background-color: #FFFFF2;
      position: absolute;
      top: 0px;
      left: 0px;
@@ -55,8 +55,8 @@
    margin: auto;
    width: 65%;
    position: relative;
-   top: 160px;
-   background-color: #22537a;
+   top: 200px;
+   background-color: #FFFFF2;
  }
 
 .nav-underlay {
@@ -65,7 +65,7 @@
   left: 0px;
   width: 100%;
   height: 100%;
-  background-color: #5856d6;
+  background-color: #22537a;
   opacity: 0.5;
   z-index: 2;
 }

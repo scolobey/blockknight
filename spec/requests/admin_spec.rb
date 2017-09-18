@@ -1,3 +1,5 @@
+//this file seems to be just an extra duplicate of the one in the features folder
+
 require 'rails_helper'
 
 describe 'site administrator' do

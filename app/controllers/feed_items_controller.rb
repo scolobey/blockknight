@@ -63,8 +63,6 @@ class FeedItemsController < ApplicationController
   end
 
   def approve_checked
-    puts params[:feed_item_ids]
-
     @feed_items.each do |item|
       item.update_attributes({approved: false});
     end

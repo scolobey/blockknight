@@ -21,7 +21,7 @@ task :tweet_winner => :environment do
   end
 
   winners = Coin.order('percent_change desc').first(3)
-  string = "Winners at the moment are #{winners[0][:name]}: #{winners[0][:percent_change]}%, #{winners[1][:name]}: #{winners[1][:percent_change]}% and #{winners[2][:name]}: #{winners[2][:percent_change]}%"
+  string = "Biggest gains today are #{winners[0][:name]}: #{winners[0][:percent_change]}%, #{winners[1][:name]}: #{winners[1][:percent_change]}% and #{winners[2][:name]}: #{winners[2][:percent_change]}%"
   client.update(string)
 end
 
@@ -34,6 +34,6 @@ task :tweet_loser => :environment do
   end
 
   losers = Coin.order('percent_change asc').first(3)
-  string = "Losers at the moment are #{losers[0][:name]}: #{losers[0][:percent_change]}%, #{losers[1][:name]}: #{losers[1][:percent_change]}% and #{losers[2][:name]}: #{losers[2][:percent_change]}%"
+  string = "Biggest losses at the moment are #{losers[0][:name]}: #{losers[0][:percent_change]}%, #{losers[1][:name]}: #{losers[1][:percent_change]}% and #{losers[2][:name]}: #{losers[2][:percent_change]}%"
   client.update(string)
 end

@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BlockKnight</title>
+    <% if content_for?(:title) %>
+      <%= content_for(:title) %>
+    <% else %>
+      <title>blockknight.com</title>
+    <% end %>
+
     <%= csrf_meta_tags %>
+
+    <meta name="description" content="Blockknight.com provides news, prices, and in-depth descriptions for today's top cryptocurrencies."/>
+
+    <meta name="keywords" content="cryptocurrency,blockchain,smart contract,bitcoin,litecoin,iota,monero,tenx,comit network"/>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>

@@ -1,3 +1,6 @@
+<% content_for :title do %>
+  <title><%= @coin.name %> cryptocurrency news, price, and desciption - <%= @coin.ticker %> - blockknight.com</title>
+<% end %>
 
 <div class="coin_info">
 
@@ -21,7 +24,6 @@
     </div>
   </div>
 
-
   <div class="coin-body">
 
     <% if @followed %>
@@ -30,14 +32,11 @@
       <%= button_to "follow", {action: "follow", coin_id: @coin.id, method: :post}, {class:"follow_button"} %>
     <% end %>
 
-
-
     <p>
       <strong>Description:</strong>
       <% if @coin.description %>
         <%= @coin.description.html_safe() %>
       <% end %>
-
     </p>
 
     <p>
@@ -86,6 +85,12 @@
     </p>
   </div>
 
-  <%= link_to 'Edit', edit_coin_path(@coin) %> |
-  <%= link_to 'Back', coins_path %>
+  <% if current_user && current_user.admin %>
+    <%= link_to 'Edit', edit_coin_path(@coin) %>
+  <% else %>
+    <%= link_to 'I disagree!', '/login' %>
+  <% end %>
+
+
+
 </div>

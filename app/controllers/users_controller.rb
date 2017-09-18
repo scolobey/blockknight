@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       session[:user_id] = user.id
-      redirect_to root_url, notice: "Welcome. Glad to have you."
+      redirect_to root_url, notice: "Welcome. Glad to have you along."
     else
       redirect_to '/signup'
     end
