@@ -1,14 +1,19 @@
+
 task :check_prices => :environment do
   require 'httparty'
 
-  @response = HTTParty.get('https://api.coinmarketcap.com/v1/ticker/')
+  while true
+    @response = HTTParty.get('https://api.coinmarketcap.com/v1/ticker/')
 
-  @response.each do|coin|
+    @response.each do|coin|
 
-    Coin.where(ticker: coin["symbol"]).
-      first_or_create({name: coin["name"], ticker: coin["symbol"]}).
-      update(price: coin["price_usd"], percent_change: coin["percent_change_24h"])
+      Coin.where(ticker: coin["symbol"]).
+        first_or_create({name: coin["name"], ticker: coin["symbol"]}).
+        update(price: coin["price_usd"], percent_change: coin["percent_change_24h"])
 
+    end
+
+    sleep 30
   end
 end
 
