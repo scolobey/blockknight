@@ -77,7 +77,8 @@ class CoinsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     # Confusing because it's not the id, it's actually passing the name because to_param in coin.rb is overwritten.
     def set_coin
-      @coin = Coin.find_by_name!(params[:id])
+      # @coin = Coin.find_by_name!(params[:id])
+      @coin = Coin.find(params[:id])
       if current_user
         @followed = @coin.followed?(current_user)
       else

@@ -14,8 +14,8 @@ class Coin < ApplicationRecord
       return false
     end
   end
-
-  def to_param
-    name
-  end
+  # 
+  # def to_param
+  #   name
+  # end
 end
