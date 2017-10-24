@@ -5,6 +5,9 @@ class CoinsController < ApplicationController
   # GET /coins.json
   def index
     @coins = Coin.all
+    if current_user
+      @favorites = current_user.coins
+    end
   end
 
   # GET /coins/1
@@ -64,13 +67,17 @@ class CoinsController < ApplicationController
   end
 
   def follow
-    CoinRelationship.create(coin_id: params[:coin_id], user_id: current_user.id)
-    redirect_back(fallback_location: root_path)
+    if current_user
+      CoinRelationship.create(coin_id: params[:coin_id], user_id: current_user.id)
+      redirect_back(fallback_location: root_path)
+    else
+      redirect_to '/login'
+    end
   end
 
   def unfollow
-    CoinRelationship.where({coin_id: params[:coin_id], user_id: current_user.id}).destroy_all
-    redirect_back(fallback_location: root_path)
+      CoinRelationship.where({coin_id: params[:coin_id], user_id: current_user.id}).destroy_all
+      redirect_back(fallback_location: root_path)
   end
 
   private

@@ -1,13 +1,36 @@
 <div class="content">
+
   <table class="table">
+
     <thead>
       <tr>
         <th>Name</th>
         <th>Symbol</th>
         <th>Price</th>
         <th>24 hr change</th>
+        <th></th>
       </tr>
     </thead>
+
+    <div class="favorites">
+      <% if current_user %>
+        <tbody>
+          <% @favorites.each do |coin| %>
+          <tr bgcolor="white">
+            <td><%= link_to coin.name, coin %></td>
+            <td><%= coin.ticker %></td>
+            <td><%= coin.price %></td>
+            <% if coin.increased? %>
+              <td style="color: #0b83e4;">+ <%= coin.percent_change %> %</td>
+            <% else %>
+              <td style="color: #dd3b4c;"><%= coin.percent_change %> %</td>
+            <% end %>
+            <td><i class="material-icons md-36">star</i></td>
+          </tr>
+          <% end %>
+        </tbody>
+      <% end %>
+    </div>
 
     <tbody>
       <% @coins.each do |coin| %>
@@ -20,9 +43,11 @@
           <% else %>
             <td style="color: #dd3b4c;"><%= coin.percent_change %> %</td>
           <% end %>
+          <td><div class="star"></div></td>
         </tr>
       <% end %>
     </tbody>
+
   </table>
 </div>
 

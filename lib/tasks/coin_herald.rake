@@ -4,7 +4,7 @@ task :news => :environment do
 
   FeedItem.delete_all
 
-  Coin.find_in_batches(batch_size: 100) do |group|
+  Coin.first(100) do |group|
 
     group.each do |record|
       query = "https://www.google.com/search?q=#{record.ticker}%20coin&source=lnms&tbm=nws&sa=X&ved=0ahUKEwiW2ZSm5bzVAhUIzGMKHV_gAOIQ_AUICigB&biw=1371&bih=727"
@@ -29,8 +29,6 @@ task :news => :environment do
       end
 
     end
-
-    sleep(30)
 
   end
 
