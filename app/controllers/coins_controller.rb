@@ -4,10 +4,16 @@ class CoinsController < ApplicationController
   # GET /coins
   # GET /coins.json
   def index
-    @coins = Coin.all
+    @id_set = []
+
     if current_user
       @favorites = current_user.coins
+      @favorites.each do |item|
+        @id_set.push(item.id)
+      end
     end
+
+    @coins = Coin.where.not(id: @id_set)
   end
 
   # GET /coins/1

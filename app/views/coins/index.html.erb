@@ -25,7 +25,9 @@
             <% else %>
               <td style="color: #dd3b4c;"><%= coin.percent_change %> %</td>
             <% end %>
-            <td><i class="material-icons md-36">star</i></td>
+            <td>
+              <%= button_to "", {action: "unfollow", coin_id: coin.id, method: :post}, {class:"ribbon"} %>
+            </td>
           </tr>
           <% end %>
         </tbody>
@@ -43,7 +45,9 @@
           <% else %>
             <td style="color: #dd3b4c;"><%= coin.percent_change %> %</td>
           <% end %>
-          <td><div class="star"></div></td>
+          <td>
+            <%= button_to "", {action: "follow", coin_id: coin.id, method: :post}, {class:"ribbon_outline"} %>
+          </td>
         </tr>
       <% end %>
     </tbody>
