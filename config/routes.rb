@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :feed_items do
     collection do
       post 'approve_checked'
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/sitemap.xml" => "sitemap#index", :format => "xml", :as => :sitemap
   get '/about' => 'static_pages#about'
 
   get '/login' => 'sessions#new'
