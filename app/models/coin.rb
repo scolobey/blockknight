@@ -1,4 +1,5 @@
 class Coin < ApplicationRecord
+  before_save :permalink
   has_many :feed_items, dependent: :destroy
   has_many :coin_relationships
   has_many :users, through: :coin_relationships
@@ -16,6 +17,11 @@ class Coin < ApplicationRecord
   end
 
   def to_param
-    [id, name.parameterize].join("-")
+   "#{id}-#{permalink}"
   end
+
+  def permalink
+   self.name.parameterize
+  end
+
 end
