@@ -34,6 +34,10 @@
       <%= button_to "", {action: "follow", coin_id: @coin.id, method: :post}, {class:"ribbon_outline"} %>
     <% end %>
 
+    <% @coin.tags.each do |tag|%>
+      <div class="tags"><%= tag.name %> </div>
+    <% end %>
+
     <p>
       <% if @coin.description %>
         <%= @coin.description.html_safe() %>

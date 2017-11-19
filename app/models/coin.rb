@@ -3,6 +3,18 @@ class Coin < ApplicationRecord
   has_many :feed_items, dependent: :destroy
   has_many :coin_relationships
   has_many :users, through: :coin_relationships
+  has_many :tag_relationships
+  has_many :tags, through: :tag_relationships
+
+  def all_tags=(names)
+    self.tags = names.split(",").map do |name|
+        Tag.where(name: name.strip).first_or_create!
+    end
+  end
+
+  def all_tags
+    self.tags.map(&:name).join(", ")
+  end
 
   def followed?(user)
     return self.users.map(&:id).include? user.id

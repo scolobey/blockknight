@@ -56,6 +56,11 @@
     <%= form.text_area :community, id: :community %>
   </div>
 
+  <div class="field">
+    <%= form.label :all_tags %>
+    <%= form.text_field :all_tags, id: :all_tags, placeholder: "Tags separated with comma" %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
