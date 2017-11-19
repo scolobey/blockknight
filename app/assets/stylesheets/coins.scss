@@ -10,31 +10,31 @@
     transform: translateY(-50%);
 }
 
+.ribbon {
+  background: none;
+  border: none;
+  height: 30px;
+  width: 30px;
+  background-image: url("/bookmark.png");
+  background-size: contain;
+  cursor: pointer;
+}
+
+.ribbon_outline {
+  background: none;
+  border: none;
+  height: 30px;
+  width: 30px;
+  background-image: url("/bookmark_border.png");
+  background-size: contain;
+  cursor: pointer;
+}
+
 table {
   border-collapse: collapse;
   font-family: "Palatino";
   i {
     color:	black; /*if no support for background-clip*/
-  }
-
-  .ribbon {
-    background: none;
-    border: none;
-    height: 30px;
-    width: 30px;
-    background-image: url("/bookmark.png");
-    background-size: contain;
-    cursor: pointer;
-  }
-
-  .ribbon_outline {
-    background: none;
-    border: none;
-    height: 30px;
-    width: 30px;
-    background-image: url("/bookmark_border.png");
-    background-size: contain;
-    cursor: pointer;
   }
 }
 

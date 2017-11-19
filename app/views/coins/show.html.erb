@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  <title><%= @coin.name %> cryptocurrency news, price, and desciption - <%= @coin.ticker %> - blockknight.com</title>
+  <title><%= @coin.name %> cryptocurrency news, price, and desciption - What is <%= @coin.ticker %>$ crypto? - blockknight.com</title>
 <% end %>
 
 <div class="coin_info">
@@ -7,66 +7,37 @@
   <div class="coin-head">
     <div class="coin-head-left">
       <b><div class="coin-title"><%= @coin.name %></div></b>
+
       <br>
       <div class="coin-symbol">(<%= @coin.ticker %>)</div>
     </div>
 
     <div class="coin-head-right">
-      <div class="coin-price"><%= @coin.price %>$</div>
+      <div class="coin-price"><b><%= @coin.price %>$</b></div>
       <br>
       <% if @coin.increased? %>
         <b style="color: #2dc0ca;">+<%= @coin.percent_change %>%</b>
       <% elsif @coin.percent_change%>
-        <b style="color: #dd3b4c;">-<%= @coin.percent_change %>%</b>
+        <b style="color: #dd3b4c;"><%= @coin.percent_change %>%</b>
       <% else %>
         <b style="color: #2dc0ca;">no change</b>
       <% end %>
+
     </div>
   </div>
 
   <div class="coin-body">
 
     <% if @followed %>
-      <%= button_to "unfollow", {action: "unfollow", coin_id: @coin.id, method: :post}, {class:"unfollow_button"} %>
+      <%= button_to "", {action: "unfollow", coin_id: @coin.id, method: :post}, {class:"ribbon"} %>
     <% else %>
-      <%= button_to "follow", {action: "follow", coin_id: @coin.id, method: :post}, {class:"follow_button"} %>
+      <%= button_to "", {action: "follow", coin_id: @coin.id, method: :post}, {class:"ribbon_outline"} %>
     <% end %>
 
     <p>
-      <strong>Description:</strong>
       <% if @coin.description %>
         <%= @coin.description.html_safe() %>
       <% end %>
-    </p>
-
-    <p>
-      <strong>Key Value Proposition:</strong>
-      <%= @coin.key_value_proposition %>
-    </p>
-
-    <p>
-      <strong>Supply:</strong>
-      <%= @coin.supply %>
-    </p>
-
-    <p>
-      <strong>Team:</strong>
-      <%= @coin.team %>
-    </p>
-
-    <p>
-      <strong>Twitter:</strong>
-      <%= @coin.twitter %>
-    </p>
-
-    <p>
-      <strong>Concerns:</strong>
-      <%= @coin.concerns %>
-    </p>
-
-    <p>
-      <strong>Community:</strong>
-      <%= @coin.community %>
     </p>
 
     <p>
