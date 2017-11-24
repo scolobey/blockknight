@@ -114,16 +114,17 @@ td {
 .coin_info {
   background-color: white;
   border-radius: 5px;
-  width: 100%;
+  width: 100% !important;
   height: 100%;
   margin: auto;
   .coin-head {
     color: #22537a;
-    height: 60px;
-    border-radius: 5px 5px 0px 0px;
+    height: 90px;
+    border-radius: 8px 8px 0px 0px;
     padding: 15px;
-    background-color: #f4bc26;
-        background-image: linear-gradient(#f4bc26, orange);
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
     .coin-head-left {
       position: absolute;
       left: 20px;
@@ -133,7 +134,8 @@ td {
       }
       .coin-symbol {
         color: #34aedc;
-        font-size: 18px;
+        font-size: 24px;
+        font-family: "Times New Roman", Times, serif;
       }
     }
     .coin-head-right {
@@ -142,7 +144,7 @@ td {
       top: 20px;
       .coin-price {
         color: #5856d6;
-        font-size: 20px;
+        font-size: 30px;
       }
     }
   }
@@ -154,6 +156,29 @@ td {
     strong {
       color: #5856d6;
     }
+    header {
+      width: 100% !important;
+    }
+    h1 {
+      font-size:75px;
+    }
+    h2 {
+      font-size:75px;
+    }
+    h3 {
+      font-size:65px;
+    }
+    section {
+      width: 100% !important;
+
+      p {
+        font-size: 35px;
+      }
+      img {
+
+      }
+    }
+
     .follow_button {
       background-color: #dd3b4c;
       border: none;
