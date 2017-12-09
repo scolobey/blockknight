@@ -13,10 +13,10 @@
     </div>
 
     <div class="coin-head-right">
-      <div class="coin-price"><b><%= @coin.price %>$</b></div>
+      <div class="coin-price"><b><%= @coin.price %></b></div>
       <br>
       <% if @coin.increased? %>
-        <b style="color: #2dc0ca;">+<%= @coin.percent_change %>%</b>
+        <b style="color: #3e9e3e;">+<%= @coin.percent_change %>%</b>
       <% elsif @coin.percent_change%>
         <b style="color: #dd3b4c;"><%= @coin.percent_change %>%</b>
       <% else %>

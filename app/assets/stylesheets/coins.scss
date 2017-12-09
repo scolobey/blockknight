@@ -11,11 +11,14 @@
 }
 
 .headline-cell {
-  width: 93%;
-  border: solid 1px;
-  height: 125px;
-  background-color: #2dc0ca;
+  width: 105%;
+  border-radius: 5px;
+  border: 1px solid rgba(black, .25);
+  height: 85px;
+  background-color: white;
+  font-size: 24px;
   margin-bottom: 50px;
+  padding: 15px;
 }
 
 .ribbon {
@@ -51,15 +54,16 @@ table {
 }
 
 th {
-    font-size: 12px;
+    font-size: 18px;
     text-align: left;
+    background-color: rgba(22,186,197, 0.25);
     color: #2dc0ca;
 }
 
 td {
-  font-size: 30px !important;
-  padding: 20px !important;
-  border-bottom: 1px solid #191919;
+  font-size: 40px !important;
+  padding: 30px !important;
+  border-bottom: 1px solid rgba(black, .25);
   color: #191919;
   a:link {
     color: #191919;
@@ -113,8 +117,9 @@ td {
       right: 20px;
       top: 20px;
       .coin-price {
-        color: #5856d6;
-        font-size: 30px;
+        color: "black";
+        font-size: 35px;
+        font-family: 'Economica';
       }
     }
   }

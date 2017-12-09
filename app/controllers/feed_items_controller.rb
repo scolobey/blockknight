@@ -79,33 +79,31 @@ class FeedItemsController < ApplicationController
     require 'nokogiri'
     require 'open-uri'
 
-    Coin.find_in_batches(batch_size: 100) do |group|
+    FeedItem.delete_all
 
-      group.each do |record|
-        query = "https://www.google.com/search?q=#{record.ticker}%20cryptocurrency&source=lnms&tbm=nws&sa=X&ved=0ahUKEwiW2ZSm5bzVAhUIzGMKHV_gAOIQ_AUICigB&biw=1371&bih=727"
-        doc = Nokogiri::HTML(open(query))
+    Coin.where(ticker: ['BTC', 'ETH', 'LTC', 'MIOTA', 'XMR', 'GNO', 'REP', 'LSK']).each do |record|
+      puts record.ticker
 
-        doc.css('div.g').slice(0, 3).each do |node|
-          image = ''
+      query = "https://www.google.com/search?q=#{record.name}%20cryptocurrency&source=lnms&tbm=nws&sa=X&ved=0ahUKEwiW2ZSm5bzVAhUIzGMKHV_gAOIQ_AUICigB&biw=1371&bih=727"
+      doc = Nokogiri::HTML(open(query))
 
-          if node.at_css('img')
-            image = node.css('img').attr('src')
-          end
+      doc.css('div.g').slice(0, 3).each do |node|
+        image = ''
 
-          news = {
-            title: node.css('h3.r').text.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: ''),
-            description: node.css('div.st').text.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: ''),
-            image: image,
-            url: node.css('a').attr('href').text.sub(/\/url\?q=/, "").sub(/\&sa=(.*)/, "")
-          }
-
-          record.feed_items.create(news)
-
+        if node.at_css('img')
+          image = node.css('img').attr('src')
         end
 
-      end
+        news = {
+          title: node.css('h3.r').text.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: ''),
+          description: node.css('div.st').text.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: ''),
+          image: image,
+          url: node.css('a').attr('href').text.sub(/\/url\?q=/, "").sub(/\&sa=(.*)/, "")
+        }
 
-      sleep(30)
+        record.feed_items.create(news)
+
+      end
 
     end
 

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :get_users
+  before_action :admin_authorize, only: [:show, :edit, :update, :destroy]
 
   def index
 
@@ -26,10 +27,9 @@ class UsersController < ApplicationController
   end
 
   def get_users
-    if admin_authorize
-      @users = User.order(:created_at).page params[:page]
-    else
-      redirect_to coins_path
+    unless admin_authorize
+      redirect_to '/'
     end
+    @users = User.order(:created_at).page params[:page]
   end
 end

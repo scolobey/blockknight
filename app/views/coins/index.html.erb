@@ -1,9 +1,12 @@
 <div class="content">
 
   <div class="headlines">
-  	<div class="headline-cell">
-
-    </div>
+    <% @news_items.each do |news_item| %>
+      <div class="headline-cell">
+        <a href=<%= news_item.url %>><%= news_item.title %></a>
+        <%= news_item.description %>
+        <%= news_item.content %>
+    <% end %>
   </div>
 
   <table class="table">
@@ -27,7 +30,7 @@
             <td><%= coin.ticker %></td>
             <td><%= coin.price %></td>
             <% if coin.increased? %>
-              <td style="color: #0b83e4;">+ <%= coin.percent_change %> %</td>
+              <td style="color: #3e9e3e;">+ <%= coin.percent_change %> %</td>
             <% else %>
               <td style="color: #dd3b4c;"><%= coin.percent_change %> %</td>
             <% end %>
@@ -47,7 +50,7 @@
           <td><%= coin.ticker %></td>
           <td><%= coin.price %></td>
           <% if coin.increased? %>
-            <td style="color: #0b83e4;">+ <%= coin.percent_change %> %</td>
+            <td style="color: #3e9e3e;">+ <%= coin.percent_change %> %</td>
           <% else %>
             <td style="color: #dd3b4c;"><%= coin.percent_change %> %</td>
           <% end %>

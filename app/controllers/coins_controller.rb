@@ -14,6 +14,8 @@ class CoinsController < ApplicationController
     end
 
     @coins = Coin.where.not(id: @id_set)
+
+    get_news_items
   end
 
   # GET /coins/1
@@ -102,5 +104,9 @@ class CoinsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def coin_params
       params.require(:coin).permit(:name, :ticker, :supply, :description, :team, :key_value_proposition, :twitter, :concerns, :community, :all_tags)
+    end
+
+    def get_news_items
+      @news_items = FeedItem.where({approved: true}).order(:updated_at).first(5)
     end
 end
