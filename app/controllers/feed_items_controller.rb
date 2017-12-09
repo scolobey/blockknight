@@ -1,4 +1,5 @@
 class FeedItemsController < ApplicationController
+  before_action :admin_authorize
   before_action :set_feed_item, only: [:show, :edit, :update, :destroy]
   before_action :get_items, :except => [:create, :show, :update, :destroy]
 

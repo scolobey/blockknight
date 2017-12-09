@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Users</h2>
+<hr>
+  <h1>
+    <%= paginate @users %>
+    <%= page_entries_info @users %>
+  </h1>
+  <br>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Creation Date</th>
+        <th>Admin</th>
+      </tr>
+    </thead>
+
+      <tbody>
+        <% @users.each do |user| %>
+
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.email %></td>
+            <td><%= user.created_at %></td>
+            <td><%= user.admin %>
+          </tr>
+
+        <% end %>
+      </tbody>
+
+    </table>
+
+    <br>
+    <h1>
+      <%= paginate @users %>
+      <%= page_entries_info @users %>
+    </h1>
+    </br>
+
+  <br>

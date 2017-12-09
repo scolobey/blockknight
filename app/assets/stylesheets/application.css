@@ -41,7 +41,7 @@
  .site-wrap {
      min-width: 100%;
      min-height: 100%;
-     background-color: #FFFFF2;
+     background-color: ;
      position: absolute;
      top: 0px;
      left: 0px;
@@ -54,7 +54,7 @@
    width: 65%;
    position: relative;
    top: 200px;
-   background-color: #FFFFF2;
+   background-color: ;
  }
 
 .nav-underlay {
@@ -141,9 +141,3 @@ input[type=checkbox]:checked ~ .site-wrap {
 input[type=checkbox]:checked ~ label[for="nav-trigger"] {
     background-image: url("/close.png");
 }
-
-/*input[type=checkbox]:checked ~ .navigation {
-    background-color: blue;
-    z-index: 4;
-    width: 100%;
-}*/
