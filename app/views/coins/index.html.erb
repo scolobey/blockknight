@@ -20,30 +20,31 @@
 
   <div class="coin-list">
 
+    <% if @favorites %>
+      <div class="coin-list-body">
+        <% @favorites.each do |coin| %>
+          <div class="coin-list-body-row">
+            <div class="wrapper">
+              <div class="col-1"><%= link_to coin.name, coin %></div>
+              <div class="col-2"><%= coin.ticker %></div>
+              <div class="col-3"><%= coin.price %></div>
+              <div class="col-4">
+                <% if coin.increased? %>
+                  <p style="color: #3e9e3e;">+ <%= coin.percent_change %> %</p>
+                <% else %>
+                  <p style="color: #dd3b4c;"><%= coin.percent_change %> %</p>
+                <% end %>
+              </div>
+              <div class="col-5">
+                <%= button_to "", {action: "unfollow", coin_id: coin.id, method: :post}, {class:"ribbon"} %>
+              </div>
+            </div>
 
-    <div class="coin-list-body">
-      <% @favorites.each do |coin| %>
-        <div class="coin-list-body-row">
-          <div class="wrapper">
-            <div class="col-1"><%= link_to coin.name, coin %></div>
-            <div class="col-2"><%= coin.ticker %></div>
-            <div class="col-3"><%= coin.price %></div>
-            <div class="col-4">
-              <% if coin.increased? %>
-                <p style="color: #3e9e3e;">+ <%= coin.percent_change %> %</p>
-              <% else %>
-                <p style="color: #dd3b4c;"><%= coin.percent_change %> %</p>
-              <% end %>
-            </div>
-            <div class="col-5">
-              <%= button_to "", {action: "unfollow", coin_id: coin.id, method: :post}, {class:"ribbon"} %>
-            </div>
           </div>
+        <% end %>
 
-        </div>
-      <% end %>
-
-    </div>
+      </div>
+    <% end %>
 
     <div class="divider">
     </div>
