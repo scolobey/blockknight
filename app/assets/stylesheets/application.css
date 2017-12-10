@@ -51,9 +51,9 @@
  .main {
    display: block;
    margin: auto;
-   width: 65%;
+   width: 100%;
    position: relative;
-   top: 200px;
+   top: 120px;
    background-color: ;
  }
 
