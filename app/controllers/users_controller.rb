@@ -27,9 +27,6 @@ class UsersController < ApplicationController
   end
 
   def get_users
-    unless admin_authorize
-      redirect_to '/'
-    end
     @users = User.order(:created_at).page params[:page]
   end
 end

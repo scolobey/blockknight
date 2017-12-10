@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>News Feed</h1>
+
+<h1>
+  <%= paginate @news_items %>
+  <%= page_entries_info @news_items %>
+</h1>
+
+<% @news_items.each do |news_item| %>
+  <div class="wrapper">
+    <div class="news_description">
+      <img height="100" width="100" src=<%= news_item.image %>>
+      <a href=<%= news_item.url %>><%= news_item.title %></a>
+      <br><%= news_item.description %>
+    </div>
+  </div>
+<% end %>
+
+
+
+<br>
+<h1>
+  <%= paginate @news_items %>
+  <%= page_entries_info @news_items %>
+</h1>

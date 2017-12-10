@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   get "/sitemap.xml" => "sitemap#index", :format => "xml", :as => :sitemap
   get '/about' => 'static_pages#about'
+  get '/news' => 'news#index'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
