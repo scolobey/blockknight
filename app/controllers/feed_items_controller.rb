@@ -79,9 +79,17 @@ class FeedItemsController < ApplicationController
     require 'nokogiri'
     require 'open-uri'
 
-    FeedItem.delete_all
+    def days
+      self * 24 * 60 * 60 * 3
+    end
 
-    Coin.where(ticker: ['BTC', 'ETH', 'LTC', 'MIOTA', 'XMR', 'GNO', 'REP', 'LSK']).each do |record|
+    def ago
+      Time.now - self
+    end
+
+    Coin.where("created_at > ?", 3.days.ago).delete_all
+
+    Coin.where(ticker: ['BTC', 'ETH', 'LTC', 'MIOTA', 'XMR', 'GNO', 'REP', 'LSK', 'XRP', 'XLM', 'ADA', 'DASH', 'EOS', 'UKG', 'SC', 'GNT', 'GBYTE', 'OMG', 'ARK', 'UBQ', 'XVG', 'STORJ', 'KMD', 'BAT']).each do |record|
       puts record.ticker
 
       query = "https://www.google.com/search?q=#{record.name}%20cryptocurrency&source=lnms&tbm=nws&sa=X&ved=0ahUKEwiW2ZSm5bzVAhUIzGMKHV_gAOIQ_AUICigB&biw=1371&bih=727"

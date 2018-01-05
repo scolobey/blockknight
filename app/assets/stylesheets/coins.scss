@@ -15,7 +15,7 @@
   border-radius: 5px;
   border: 1px solid rgba(black, .25);
   height: 85px;
-  background-color: white;
+  background: white;
   font-size: 24px;
   margin-bottom: 50px;
   padding: 15px;
@@ -59,12 +59,12 @@
 
 .coin-list-header {
   position: fixed;
-  top: 101px;
+  top: 135px;
   width: 100%;
-  height: 22px;
-  font-size: 18px;
+  max-height: 22px;
+  font-size: 20px;
   text-align: left;
-  background-color: rgba(22,186,197, 0.25);
+  background: linear-gradient(to top right, rgba(0,255,0,0.3), rgba(22,186,197, .4));
   color: #2dc0ca;
   padding-top: 4px;
 }

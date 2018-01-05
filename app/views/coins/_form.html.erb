@@ -61,6 +61,11 @@
     <%= form.text_field :all_tags, id: :all_tags, placeholder: "Tags separated with comma" %>
   </div>
 
+  <div class="field">
+    <%= form.label :archive %>
+    <%= form.check_box :archive, placeholder: "Archived" %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

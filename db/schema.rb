@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171119180438) do
+ActiveRecord::Schema.define(version: 20180101015429) do
 
   create_table "coin_relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20171119180438) do
     t.text "community"
     t.string "twitter"
     t.text "concerns"
+    t.boolean "archive"
   end
 
   create_table "feed_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|

@@ -13,7 +13,8 @@ class CoinsController < ApplicationController
       end
     end
 
-    @coins = Coin.where.not(id: @id_set)
+    @coins = Coin.where(archive: nil).where.not(id: @id_set)
+    # //
 
     get_news_items
   end
@@ -103,7 +104,7 @@ class CoinsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def coin_params
-      params.require(:coin).permit(:name, :ticker, :supply, :description, :team, :key_value_proposition, :twitter, :concerns, :community, :all_tags)
+      params.require(:coin).permit(:name, :ticker, :supply, :description, :team, :key_value_proposition, :twitter, :concerns, :community, :all_tags, :archive)
     end
 
     def get_news_items

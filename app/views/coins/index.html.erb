@@ -25,7 +25,12 @@
         <% @favorites.each do |coin| %>
           <div class="coin-list-body-row">
             <div class="wrapper">
-              <div class="col-1"><%= link_to coin.name, coin %></div>
+              <div class="col-1">
+                <%= link_to coin.name, coin %>
+                <% if coin.archive %>
+                  (Archived)
+                <% end %>
+              </div>
               <div class="col-2"><%= coin.ticker %></div>
               <div class="col-3"><%= coin.price %></div>
               <div class="col-4">
@@ -44,7 +49,7 @@
         <% end %>
 
       </div>
-      
+
       <div class="divider">
       </div>
     <% end %>
