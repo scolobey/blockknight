@@ -4,19 +4,3 @@
     <a href="/"><img src='/blockKnight.gif' height="80"><h1>Blockknight</h1></a>
   </div>
 </div>
-
-<div class="marquee">
-  <div class="marquee--inner">
-    <span>
-      <% @news.each do |news_item| %>
-        <div class="news_item"> &#8226; &nbsp; &nbsp; <a target="_blank" href=<%= news_item.url %>><%= news_item.title %></a> &nbsp; &nbsp; </div>
-      <% end %>
-    </span>
-    <span>
-      <% @news.each do |news_item| %>
-        <div class="news_item"> &#8226; &nbsp; &nbsp; <a target="_blank" href=<%= news_item.url %>><%= news_item.title %> &nbsp; &nbsp; </div>
-      <% end %>
-    </span>
-
-  </div>
-</div>

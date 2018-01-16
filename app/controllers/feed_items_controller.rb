@@ -80,14 +80,14 @@ class FeedItemsController < ApplicationController
     require 'open-uri'
 
     def days
-      self * 24 * 60 * 60 * 3
+      self * 24 * 60 * 60
     end
 
     def ago
       Time.now - self
     end
 
-    Coin.where("created_at > ?", 3.days.ago).delete_all
+    Coin.where("updated_at > ?", 2.days.ago).delete_all
 
     Coin.where(ticker: ['BTC', 'ETH', 'LTC', 'MIOTA', 'XMR', 'GNO', 'REP', 'LSK', 'XRP', 'XLM', 'ADA', 'DASH', 'EOS', 'UKG', 'SC', 'GNT', 'GBYTE', 'OMG', 'ARK', 'UBQ', 'XVG', 'STORJ', 'KMD', 'BAT']).each do |record|
       puts record.ticker
