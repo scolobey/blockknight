@@ -1,32 +1,72 @@
-
-$header-height: 100px;
-$header-background: #2dc0ca;
+$header-background: #fff;
 $header-font-color: #34aedc;
 $link-hover-color: #5856d6;
 
 .header {
-  height: $header-height;
-  background: $header-background;
-  position: fixed;
+  width: 100% !important;
+  background: white;
+  opacity: 1;
   z-index: 1;
-  top: 0px;
-  width: 100%;
+  position: fixed;
+  border-bottom: 1px solid #d6e2eb;
 }
 
-// Logo and branding
-.brand {
-  position: absolute;
-  top: 0px;
-  left: 75px;
-  float: left;
-  line-height: $header-height;
-  h1 {
-    position: absolute;
-    top: 0px;
-    left: 75px;
-    font-family: "Copperplate";
-    font-size: 34px;
-    color: black;
+.header-navigation {
+  display: inline-block;
+  margin-left: 15%;
+  border-radius: 10px;
+  font-size: 18px;
+  vertical-align: bottom;
+  margin-bottom: 25px;
+  padding: 5px;
+  .nav-button {
+    height: 20px;
+
+  }
+  .current {
+    border-bottom: 3px solid #5c84bc;
+    color: #5c84bc;
+    padding-bottom: 3px;
+  }
+  a {
+    text-decoration: none;
+    font-family: 'Arial Rounded MT Bold';
+    color: #808080;
+    letter-spacing: 1.5px;
+    padding: 15px;
+    overflow: hidden;
+    &:hover {
+      padding-bottom: 3px;
+      color: #5c84bc;
+    }
+    &:active {
+
+    }
+  }
+}
+
+.logo-container {
+  display: inline-block;
+  height: 100px;
+  .logo {
+    display: inline-block;
+    padding: 10px;
+    line-height: 1;
+    margin: 0;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .logo-img{
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .logo-title {
+    display: inline-block;
+    font-family: "Arial Rounded MT Bold";
+    font-size: 26px;
+    color: #5f6d85;
+    vertical-align: bottom;
+    letter-spacing: 1.8px;
   }
   a:visited {
     color: $header-font-color;
@@ -35,9 +75,4 @@ $link-hover-color: #5856d6;
       background-color: $header-background;
     }
   }
-}
-
-span {
-  float: left;
-  width: 50%;
 }

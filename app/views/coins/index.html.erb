@@ -1,36 +1,68 @@
-<div class="content">
+<body class=”ticker-page”>
+  <div class="content">
 
-  <!-- <div class="headlines">
-    <% @news_items.each do |news_item| %>
-      <div class="headline-cell">
-        <a href=<%= news_item.url %>><%= news_item.title %></a>
-        <%= news_item.description %>
-        <%= news_item.content %>
-    <% end %>
-  </div> -->
-  <div class="coin-list-header">
-    <div class="wrapper">
-      <div class="col-1">Name</div>
-      <div class="col-2">Symbol</div>
-      <div class="col-3">Price</div>
-      <div class="col-4">24 hr change</div>
-      <div class="col-5"></div>
+    <!-- <div class="headlines">
+      <% @news_items.each do |news_item| %>
+        <div class="headline-cell">
+          <a href=<%= news_item.url %>><%= news_item.title %></a>
+          <%= news_item.description %>
+          <%= news_item.content %>
+      <% end %>
+    </div> -->
+
+    <div class="coin-list-header">
+      <div class="wrapper">
+        <div class="col-1">Name</div>
+        <div class="col-2">Symbol</div>
+        <div class="col-3">Price</div>
+        <div class="col-4">24 hr change</div>
+        <div class="col-5"></div>
+      </div>
     </div>
-  </div>
+    <div class="coin-list-header-shade">
+    </div>
 
-  <div class="coin-list">
+    <div class="coin-list">
 
-    <% if @favorites %>
+      <% if @favorites %>
+        <div class="coin-list-body">
+          <% @favorites.each do |coin| %>
+            <div class="coin-list-body-row">
+              <div class="wrapper">
+                <div class="col-1">
+                  <%= link_to coin.name, coin %>
+                  <% if coin.archive %>
+                    (Archived)
+                  <% end %>
+                </div>
+                <div class="col-2"><%= coin.ticker %></div>
+                <div class="col-3"><%= coin.price %></div>
+                <div class="col-4">
+                  <% if coin.increased? %>
+                    <p style="color: #3e9e3e;">+ <%= coin.percent_change %> %</p>
+                  <% else %>
+                    <p style="color: #dd3b4c;"><%= coin.percent_change %> %</p>
+                  <% end %>
+                </div>
+                <div class="col-5">
+                  <%= button_to "", {action: "unfollow", coin_id: coin.id, method: :post}, {class:"ribbon"} %>
+                </div>
+              </div>
+
+            </div>
+          <% end %>
+
+        </div>
+
+        <div class="divider">
+        </div>
+      <% end %>
+
       <div class="coin-list-body">
-        <% @favorites.each do |coin| %>
+        <% @coins.each.each do |coin| %>
           <div class="coin-list-body-row">
             <div class="wrapper">
-              <div class="col-1">
-                <%= link_to coin.name, coin %>
-                <% if coin.archive %>
-                  (Archived)
-                <% end %>
-              </div>
+              <div class="col-1"><%= link_to coin.name, coin %></div>
               <div class="col-2"><%= coin.ticker %></div>
               <div class="col-3"><%= coin.price %></div>
               <div class="col-4">
@@ -41,42 +73,15 @@
                 <% end %>
               </div>
               <div class="col-5">
-                <%= button_to "", {action: "unfollow", coin_id: coin.id, method: :post}, {class:"ribbon"} %>
+                <%= button_to "", {action: "follow", coin_id: coin.id, method: :post}, {class:"ribbon_outline"} %>
               </div>
             </div>
-
           </div>
         <% end %>
-
       </div>
-
-      <div class="divider">
-      </div>
-    <% end %>
-
-    <div class="coin-list-body">
-      <% @coins.each.each do |coin| %>
-        <div class="coin-list-body-row">
-          <div class="wrapper">
-            <div class="col-1"><%= link_to coin.name, coin %></div>
-            <div class="col-2"><%= coin.ticker %></div>
-            <div class="col-3"><%= coin.price %></div>
-            <div class="col-4">
-              <% if coin.increased? %>
-                <p style="color: #3e9e3e;">+ <%= coin.percent_change %> %</p>
-              <% else %>
-                <p style="color: #dd3b4c;"><%= coin.percent_change %> %</p>
-              <% end %>
-            </div>
-            <div class="col-5">
-              <%= button_to "", {action: "follow", coin_id: coin.id, method: :post}, {class:"ribbon_outline"} %>
-            </div>
-          </div>
-        </div>
-      <% end %>
     </div>
+
   </div>
 
-</div>
-
-<br>
+  <br>
+</body>

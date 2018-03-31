@@ -1,6 +1,18 @@
 
 <div class="header">
-  <div class="brand">
-    <a href="/"><img src='/blockKnight.gif' height="80"><h1>Blockknight</h1></a>
+  <div class="logo-container">
+    <a href="/" class="logo">
+      <img class= "logo-img" src='/blockKnight.gif' height="60">
+      <span class = "logo-title">
+        Blockknight
+      </span>
+    </a>
+  </div>
+
+  <div class="header-navigation">
+    <span class="nav-button"><%= link_to "Ticker", root_path, class: cp(root_path) %></span>
+    <span class="nav-button"><%= link_to "News", news_path, class: cp(news_path) %></span>
+    <span class="nav-button"><%= link_to "Blog", blog_posts_path, class: cp(blog_posts_path) %></span>
+    <span class="nav-button"><a href="/forum">Forum</a></span>
   </div>
 </div>

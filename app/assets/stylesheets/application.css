@@ -32,6 +32,7 @@
 
  body {
      overflow-x: hidden;
+     font-family: 'Arial Rounded MT Bold';
  }
 
  #notice {

@@ -5,6 +5,13 @@ class Coin < ApplicationRecord
   has_many :users, through: :coin_relationships
   has_many :tag_relationships
   has_many :tags, through: :tag_relationships
+  has_many :prices
+  serialize :price_data, Array
+
+  def add_price_data(price)
+    self.price_data << price
+    self.save
+  end
 
   def all_tags=(names)
     self.tags = names.split(",").map do |name|

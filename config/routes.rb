@@ -16,9 +16,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :blog_posts
+
   get "/sitemap.xml" => "sitemap#index", :format => "xml", :as => :sitemap
   get '/about' => 'static_pages#about'
   get '/news' => 'news#index'
+  get '/forum' => 'forum#index'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

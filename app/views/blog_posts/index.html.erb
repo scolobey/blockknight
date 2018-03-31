@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<div class= "news_container">
+  <div class= "news_header">
+    Blog_
+  </div>
+  <div class= "news_header_shade">
+
+  </div>
+
+  <% @blog_posts.each do |blog_post| %>
+    <div class="blog_cell">
+      <img class="blog_cell_img" src=<%= blog_post.img %>>
+      <div class="blog_cell_title">
+        <%= blog_post.title %>
+      </div>
+      <%= blog_post.description %>
+    </div>
+  <% end %>
+
+</div>

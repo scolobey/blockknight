@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180101015429) do
+ActiveRecord::Schema.define(version: 20180331222125) do
+
+  create_table "blog_posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title"
+    t.string "img"
+    t.string "description"
+  end
 
   create_table "coin_relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id"
@@ -37,6 +43,7 @@ ActiveRecord::Schema.define(version: 20180101015429) do
     t.string "twitter"
     t.text "concerns"
     t.boolean "archive"
+    t.string "price_data"
   end
 
   create_table "feed_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
@@ -49,6 +56,15 @@ ActiveRecord::Schema.define(version: 20180101015429) do
     t.datetime "updated_at", null: false
     t.integer "coin_id"
     t.string "url", collation: "utf8_general_ci"
+  end
+
+  create_table "prices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "coin_id"
+    t.datetime "time"
+    t.float "value", limit: 24
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coin_id"], name: "index_prices_on_coin_id"
   end
 
   create_table "tag_relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -75,6 +91,7 @@ ActiveRecord::Schema.define(version: 20180101015429) do
     t.string "token"
   end
 
+  add_foreign_key "prices", "coins"
   add_foreign_key "tag_relationships", "coins"
   add_foreign_key "tag_relationships", "tags"
 end

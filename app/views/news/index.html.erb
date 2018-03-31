@@ -1,21 +1,29 @@
+<body class=”news-button”>
 <p id="notice"><%= notice %></p>
 
 <div class= "news_container">
-  <h1>News Feed</h1>
+  <div class= "news_header">
+    Crypto News_
+  </div>
 
-  <h1>
-    <%= paginate @news_items %>
-    <%= page_entries_info @news_items %>
-  </h1>
+  <div class= "news_header_shade">
+
+  </div>
 
   <% @news_items.each do |news_item| %>
-    <div class="news_cell wrapper">
-      <div class="news_description">
-        <img height="100" width="100" src=<%= news_item.image %>>
-        <a href=<%= news_item.url %>><%= news_item.title %></a>
-        <br><%= news_item.description %>
-      </div>
+  <a href=<%= news_item.url %>>
+    <div class="news_cell">
+        <span class="news-cell-left">
+          <%= news_item.title %>
+          <div class="news-cell-attribution">
+            Published <%= time_ago_in_words(news_item.created_at) %> ago
+          </div>
+        </span>
+        <span class="news-cell-center">
+          <%= news_item.description %>
+        </span>
     </div>
+    </a>
   <% end %>
 
 
@@ -26,3 +34,4 @@
     <%= page_entries_info @news_items %>
   </h1>
 </div>
+</body>

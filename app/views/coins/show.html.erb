@@ -6,43 +6,40 @@
 
   <div class="coin-head">
     <div class="coin-head-left">
-      <b><div class="coin-title"><%= @coin.name %></div></b>
-
-      <br>
-      <div class="coin-symbol">(<%= @coin.ticker %>)</div>
+      <span class="coin-title"><%= @coin.name %></span>
+      <span class="coin-symbol">(<%= @coin.ticker %>)</span>
     </div>
 
     <div class="coin-head-right">
-      <div class="coin-price"><b><%= @coin.price %></b></div>
-      <br>
+      <span class="follow-button">
+        <% if @followed %>
+          <%= button_to "", {action: "unfollow", coin_id: @coin.id, method: :post}, {class:"ribbon", value:"corn"} %>
+        <% else %>
+          <%= button_to "", {action: "follow", coin_id: @coin.id, method: :post}, {class:"ribbon_outline", value:"corn"} %>
+        <% end %>
+      </span>
+      <span class="coin-price">$<%= @coin.price.round(3) %></span>
       <% if @coin.increased? %>
-        <b style="color: #3e9e3e;">+<%= @coin.percent_change %>%</b>
+        <span class="percent_change" style="color: #3e9e3e;">+<%= @coin.percent_change %>%</span>
       <% elsif @coin.percent_change%>
-        <b style="color: #dd3b4c;"><%= @coin.percent_change %>%</b>
+        <span class="percent_change" style="color: #dd3b4c;"><%= @coin.percent_change %>%</span>
       <% else %>
-        <b style="color: #2dc0ca;">no change</b>
+        <span class="percent_change" style="color: #2dc0ca;">no change</span>
       <% end %>
-
     </div>
   </div>
 
   <div class="coin-body">
 
-    <% if @followed %>
-      <%= button_to "", {action: "unfollow", coin_id: @coin.id, method: :post}, {class:"ribbon"} %>
-    <% else %>
-      <%= button_to "", {action: "follow", coin_id: @coin.id, method: :post}, {class:"ribbon_outline"} %>
-    <% end %>
+
 
     <% @coin.tags.each do |tag|%>
-      <div class="tags"><%= tag.name %> </div>
+      <div class="tag"><%= tag.name %> </div>
     <% end %>
 
-    <p>
-      <% if @coin.description %>
-        <%= @coin.description.html_safe() %>
-      <% end %>
-    </p>
+    <% @coin.prices.each do |price|%>
+      <%= price.value %>
+    <% end %>
 
     <p>
       <strong>News:</strong>
@@ -62,8 +59,6 @@
 
   <% if current_user && current_user.admin %>
     <%= link_to 'Edit', edit_coin_path(@coin) %>
-  <% else %>
-    <%= link_to 'I disagree!', '/login' %>
   <% end %>
 
 
