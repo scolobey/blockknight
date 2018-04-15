@@ -29,32 +29,41 @@
     </div>
   </div>
 
+  <div class= "news_header_shade">
+
+  </div>
+
   <div class="coin-body">
-
-
 
     <% @coin.tags.each do |tag|%>
       <div class="tag"><%= tag.name %> </div>
     <% end %>
 
-    <% @coin.prices.each do |price|%>
-      <%= price.value %>
-    <% end %>
+    <div class="coin-chart">
+      <%= area_chart @price_data %>
+    </div>
 
-    <p>
-      <strong>News:</strong>
-      <br>
-      <div class="news-box">
-        <% @news_items.each do |item|%>
-          <% if item.approved? %>
-            <div class="news-item">
-              <a href=<%= item.url %>><%= item.title %></a>
-              <img height="200" width="200" src=<%= item.image %>>
-            </div>
+    <% if @news_items.length > 0 %>
+
+        <div class="news-box">
+          <% @news_items.each do |item|%>
+            <% if item.approved? %>
+              <a href=<%= item.url %>>
+                <div class="news-item">
+                  <div class="news-image">
+                    <img src=<%= item.image %>>
+                  </div>
+
+                  <div class="news-title">
+                    <%= item.title %>
+                  </div>
+                </div>
+              </a>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-    </p>
+        </div>
+
+    <% end %>
   </div>
 
   <% if current_user && current_user.admin %>

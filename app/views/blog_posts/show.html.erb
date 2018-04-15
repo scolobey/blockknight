@@ -2,19 +2,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @blog_post.title %>
+  <%= raw(@blog_post.content) %>
 </p>
 
-<p>
-  <strong>Img:</strong>
-  <%= @blog_post.img %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @blog_post.description %>
-</p>
-
-<%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
+<% if current_user && current_user.admin %>
+  <%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
+<% end %>
 <%= link_to 'Back', blog_posts_path %>

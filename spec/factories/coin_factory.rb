@@ -1,6 +1,6 @@
 require 'faker'
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :coin do |f|
     f.name "Bitcoin"
     f.ticker "BTC"

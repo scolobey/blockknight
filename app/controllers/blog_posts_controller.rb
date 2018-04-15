@@ -16,6 +16,7 @@ class BlogPostsController < ApplicationController
   end
 
   def edit
+
   end
 
   def create
@@ -56,6 +57,6 @@ class BlogPostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_post_params
-      params.require(:blog_post).permit(:title, :description, :img)
+      params.require(:blog_post).permit(:title, :description, :img, :content)
     end
 end

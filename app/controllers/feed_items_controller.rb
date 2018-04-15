@@ -64,15 +64,17 @@ class FeedItemsController < ApplicationController
   end
 
   def approve_checked
-    @feed_items.each do |item|
-      item.update_attributes({approved: false});
-    end
+    if params[:feed_item_ids]
+      @feed_items.each do |item|
+        item.update_attributes({approved: false});
+      end
 
-    FeedItem.find(params[:feed_item_ids]).each do |item|
-      item.update_attributes({approved: true});
-    end
+      FeedItem.find(params[:feed_item_ids]).each do |item|
+        item.update_attributes({approved: true});
+      end
 
-    redirect_to feed_items_path
+      redirect_to feed_items_path
+    end
   end
 
   def update_news
@@ -87,7 +89,7 @@ class FeedItemsController < ApplicationController
       Time.now - self
     end
 
-    FeedItem.where("created_at > ?", 3.days.ago).delete_all
+    FeedItem.where("created_at > ?", 15.days.ago).delete_all
 
     Coin.where(ticker: ['BTC', 'ETH', 'LTC', 'MIOTA', 'XMR', 'GNO', 'REP', 'LSK', 'XRP', 'XLM', 'ADA', 'DASH', 'EOS', 'UKG', 'SC', 'GNT', 'GBYTE', 'OMG', 'ARK', 'UBQ', 'XVG', 'STORJ', 'KMD', 'BAT']).each do |record|
       puts record.ticker
@@ -95,8 +97,9 @@ class FeedItemsController < ApplicationController
       query = "https://www.google.com/search?q=#{record.name}%20cryptocurrency&source=lnms&tbm=nws&sa=X&ved=0ahUKEwiW2ZSm5bzVAhUIzGMKHV_gAOIQ_AUICigB&biw=1371&bih=727"
       doc = Nokogiri::HTML(open(query))
 
-      doc.css('div.g').slice(0, 3).each do |node|
+      doc.css('div.g').slice(0, 10).each do |node|
         image = ''
+        link = node.css('a').attr('href').text.sub(/\/url\?q=/, "").sub(/\&sa=(.*)/, "")
 
         if node.at_css('img')
           image = node.css('img').attr('src')
@@ -106,10 +109,13 @@ class FeedItemsController < ApplicationController
           title: node.css('h3.r').text.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: ''),
           description: node.css('div.st').text.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: ''),
           image: image,
-          url: node.css('a').attr('href').text.sub(/\/url\?q=/, "").sub(/\&sa=(.*)/, "")
+          url: link
         }
 
-        record.feed_items.create(news)
+        # Use this line to blacklist certain news organizations
+        unless ['forbes','cnbc', 'fortune'].any? { |phrase| link.to_s.include?(phrase) }
+          record.feed_items.create(news)
+        end
 
       end
 
