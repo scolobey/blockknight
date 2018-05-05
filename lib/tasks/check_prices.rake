@@ -1,6 +1,7 @@
 
 task :check_prices => :environment do
   require 'httparty'
+  # Updates Coin.prices and Coin.price every minute
 
   while true
 
@@ -10,8 +11,11 @@ task :check_prices => :environment do
 
       Coin.where(ticker: coin["symbol"]).
         first_or_create({name: coin["name"], ticker: coin["symbol"]}).
-        update(price: coin["price_usd"], percent_change: coin["percent_change_24h"])
+        update(price: coin["price_usd"], percent_change: coin["percent_change_24h"]).
+        prices.create(time: Time.at(price["time"]), value: coin["price_usd"])
+
     end
+
     puts Time.now
     sleep 60
   end
@@ -44,12 +48,18 @@ task :tweet_loser => :environment do
 end
 
 task :load_historical_prices => :environment do
-  puts 'wtf'
   require 'httparty'
 
-  Coin.all.each do |coin|
+  @coin_set_updated = Coin.where("prices_updated_at is not null").order("prices_updated_at DESC")
+  @coin_set_null = Coin.where("prices_updated_at is null")
+  @coin_set = @coin_set_null + @coin_set_updated
 
-    puts coin.name
+  @coin_set.each do |coin|
+    puts coin.name, coin.prices_updated_at, Time.now
+
+    coin.update({prices_updated_at: Time.now})
+
+    puts coin.prices_updated_at
 
     @response = HTTParty.get('https://min-api.cryptocompare.com/data/histoday?aggregate=1&e=CCCAGG&extraParams=CryptoCompare&fsym=' + coin.ticker + '&limit=730&tryConversion=false&tsym=USD')
 
@@ -59,6 +69,11 @@ task :load_historical_prices => :environment do
 
     sleep 10
   end
+end
+
+task :update_historical_prices => :environment do
+  # load prices for coins containing a time gap of > 12 hours.
+
 end
 
 task :meltdown => :environment do

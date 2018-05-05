@@ -7,7 +7,12 @@ class Coin < ApplicationRecord
   has_many :tags, through: :tag_relationships
   has_many :prices
   validates_uniqueness_of :ticker, :name
+  after_initialize :init
   serialize :price_data, Array
+
+  def init
+    self.prices_updated_at = Time.now - 10.years
+  end
 
   def all_tags=(names)
     self.tags = names.split(",").map do |name|

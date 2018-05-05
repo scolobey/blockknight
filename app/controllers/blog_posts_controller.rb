@@ -16,7 +16,7 @@ class BlogPostsController < ApplicationController
   end
 
   def edit
-
+    admin_authorize
   end
 
   def create
