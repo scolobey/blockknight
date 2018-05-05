@@ -55,15 +55,23 @@ task :load_historical_prices => :environment do
   @coin_set = @coin_set_null + @coin_set_updated
 
   @coin_set.each do |coin|
-    puts coin.name, coin.prices_updated_at, Time.now
+    puts coin.name
+    days = 730
+
+    if coin.prices_updated_at
+      timeDifference = Time.now.to_date - coin.prices_updated_at.to_date
+      puts timeDifference +1
+      if timeDifference < days
+        days = timeDifference + 1
+      end
+    end
 
     coin.update({prices_updated_at: Time.now})
 
-    puts coin.prices_updated_at
-
-    @response = HTTParty.get('https://min-api.cryptocompare.com/data/histoday?aggregate=1&e=CCCAGG&extraParams=CryptoCompare&fsym=' + coin.ticker + '&limit=730&tryConversion=false&tsym=USD')
+    @response = HTTParty.get('https://min-api.cryptocompare.com/data/histoday?aggregate=1&e=CCCAGG&extraParams=CryptoCompare&fsym=' + coin.ticker + '&limit=' + days.to_s + '&tryConversion=false&tsym=USD')
 
     @response['Data'].each do|price|
+      puts Time.at(price["time"])
       coin.prices.create(time: Time.at(price["time"]), value: price["close"])
     end
 
