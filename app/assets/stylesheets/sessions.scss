@@ -3,6 +3,49 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .login {
-  font-size: 22px;
-  color: white;
+  width: 100%;
+  font-size: 36px;
+
+  .login-field {
+    margin: auto;
+    width: 300px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    .login-field-header {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      background: linear-gradient(to top right, rgba(0,255,0,0.3), rgba(22,186,197, .4));
+      color: #2dc0ca;
+      height: 50px;
+      padding-left: 15px;
+      h1 {
+        margin: auto;
+        display: inline-block;
+      }
+    }
+    .login-field-input {
+      margin: auto;
+      width: 200px;
+      padding: 20px;
+      a {
+        text-decoration: none;
+        font-size: 14px;
+      }
+      input {
+          width: 100%;
+          padding: 5px;
+          margin: 8px 0;
+          font-size: 16px;
+          box-sizing: border-box;
+      }
+      input[type=button], input[type=submit], input[type=reset] {
+          background-color: #5c84bc;
+          border: none;
+          color: white;
+          padding: 10px;
+          text-decoration: none;
+          cursor: pointer;
+      }
+    }
+  }
 }

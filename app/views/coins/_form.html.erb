@@ -62,6 +62,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :whitepaper %>
+    <%= form.text_field :whitepaper, id: :whitepaper, placeholder: "whitepaper URL" %>
+  </div>
+
+  <div class="field">
     <%= form.label :archive %>
     <%= form.check_box :archive, placeholder: "Archived" %>
   </div>

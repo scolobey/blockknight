@@ -39,6 +39,13 @@
       <div class="tag"><%= tag.name %> </div>
     <% end %>
 
+    <div class="coin-buttons">
+      <div class="coin-description">
+        <%= @coin.description %>
+      </div>
+      <a href=<%= @coin.whitepaper %>><%= material_icon.description.md_48 %></a>
+    </div>
+
     <div class="coin-chart">
       <%= area_chart @price_data %>
     </div>

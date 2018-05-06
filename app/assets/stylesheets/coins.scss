@@ -132,7 +132,29 @@
 }
 
 .coin-chart {
+  margin: auto;
+  width: 800px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  padding: 10px;
+}
 
+.coin-buttons {
+  margin: auto;
+  border-radius: 6px;
+  width: 800px;
+  box-shadow: 0 4px 3px 0 rgba(0,0,0,0.2);
+  padding: 10px;
+  margin-bottom: 40px;
+  a:visited {
+    color: black;
+  }
+}
+
+.coin-description {
+  width: 800px;
+  overflow: hidden;
+  padding-top: 10px;
+  margin-bottom: 40px;
 }
 
 .tag {

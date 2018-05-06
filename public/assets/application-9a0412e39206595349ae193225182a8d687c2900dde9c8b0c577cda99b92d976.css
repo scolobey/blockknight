@@ -1,0 +1,886 @@
+/* line 5, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/_header.scss */
+.header {
+  width: 100% !important;
+  background: white;
+  opacity: 1;
+  z-index: 1;
+  position: fixed;
+  border-bottom: 1px solid #d6e2eb;
+}
+
+/* line 14, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/_header.scss */
+.header-navigation {
+  display: inline-block;
+  margin-left: 15%;
+  border-radius: 10px;
+  font-size: 18px;
+  vertical-align: bottom;
+  margin-bottom: 25px;
+  padding: 5px;
+}
+/* line 22, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/_header.scss */
+.header-navigation .nav-button {
+  height: 20px;
+}
+/* line 26, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/_header.scss */
+.header-navigation .current {
+  border-bottom: 3px solid #5c84bc;
+  color: #5c84bc;
+  padding-bottom: 3px;
+}
+/* line 31, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/_header.scss */
+.header-navigation a {
+  text-decoration: none;
+  font-family: 'Arial Rounded MT Bold';
+  color: #808080;
+  letter-spacing: 1.5px;
+  padding: 15px;
+  overflow: hidden;
+}
+/* line 38, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/_header.scss */
+.header-navigation a:hover {
+  padding-bottom: 3px;
+  color: #5c84bc;
+}
+
+/* line 48, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/_header.scss */
+.logo-container {
+  display: inline-block;
+  height: 100px;
+}
+/* line 51, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/_header.scss */
+.logo-container .logo {
+  display: inline-block;
+  padding: 10px;
+  line-height: 1;
+  margin: 0;
+  text-decoration: none;
+  white-space: nowrap;
+}
+/* line 59, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/_header.scss */
+.logo-container .logo-img {
+  display: inline-block;
+  vertical-align: middle;
+}
+/* line 63, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/_header.scss */
+.logo-container .logo-title {
+  display: inline-block;
+  font-family: "Arial Rounded MT Bold";
+  font-size: 26px;
+  color: #5f6d85;
+  vertical-align: bottom;
+  letter-spacing: 1.8px;
+}
+/* line 71, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/_header.scss */
+.logo-container a:visited {
+  color: #34aedc;
+  text-decoration: none;
+}
+/* line 74, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/_header.scss */
+.logo-container a:visited:hover {
+  background-color: #fff;
+}
+/* line 1, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/blog_posts.scss */
+.blog-list {
+  padding-top: 30px;
+}
+
+/* line 5, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/blog_posts.scss */
+.blog_cell {
+  width: 75%;
+  margin: auto;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+}
+/* line 11, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/blog_posts.scss */
+.blog_cell .blog_cell_img {
+  max-width: 800px;
+  border: 1px solid #C8C8C8;
+}
+/* line 15, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/blog_posts.scss */
+.blog_cell .blog_cell_title {
+  background-color: white;
+  border-radius: 3px;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 200px;
+  height: 190px;
+  color: black;
+  position: absolute;
+  left: 700px;
+  top: 50px;
+}
+/* line 13, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.headline-cell {
+  width: 105%;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  height: 85px;
+  background: white;
+  font-size: 24px;
+  margin-bottom: 50px;
+  padding: 15px;
+  font-family: 'Arial Rounded MT Bold';
+}
+
+/* line 25, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.divider {
+  width: 100%;
+  height: 5px;
+  background-color: blue;
+  opacity: .25;
+}
+
+/* line 32, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.col-1 {
+  grid-column: 1;
+}
+
+/* line 35, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.col-2 {
+  grid-column: 2;
+}
+
+/* line 38, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.col-3 {
+  grid-column: 3;
+}
+
+/* line 41, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.col-4 {
+  grid-column: 4;
+}
+
+/* line 44, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.col-5 {
+  grid-column: 5;
+}
+
+/* line 48, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(50px, 70px);
+  font-family: "Arial Rounded MT Bold";
+  padding-left: 200px;
+  padding-right: 200px;
+}
+/* line 56, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.wrapper i {
+  color: black;
+  /*if no support for background-clip*/
+}
+
+/* line 61, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin-list-header {
+  position: fixed;
+  top: 100px;
+  width: 100%;
+  z-index: 3;
+  max-height: 30px;
+  font-size: 16px;
+  text-align: left;
+  background: linear-gradient(to top right, rgba(0, 255, 0, 0.3), rgba(22, 186, 197, 0.4));
+  color: #2dc0ca;
+  padding-top: 10px;
+}
+
+/* line 74, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin-list-header-shade {
+  position: fixed;
+  top: 100px;
+  width: 100%;
+  height: 48px;
+  z-index: 2;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0), white 30%);
+}
+
+/* line 83, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin-list-body {
+  font-size: 40px !important;
+  color: #191919;
+}
+/* line 86, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin-list-body .wrapper {
+  align-items: center;
+  justify-content: center;
+}
+/* line 90, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin-list-body .coin-list-body-row {
+  border-bottom: 1px solid #eef1f5;
+  color: #444956;
+  font-size: 14px;
+  letter-spacing: .1em;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: Montserrat, sans-serif;
+}
+/* line 100, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin-list-body a:link {
+  color: #191919;
+  text-decoration: none;
+}
+/* line 104, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin-list-body a:visited {
+  color: #191919;
+  text-decoration: none;
+}
+/* line 108, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin-list-body a:hover {
+  background: #FFFFF2;
+  color: #34aedc;
+}
+
+/* line 114, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.ribbon {
+  background: none;
+  border: none;
+  height: 30px;
+  width: 30px;
+  background-image: url("/bookmark.png");
+  background-size: contain;
+  cursor: pointer;
+}
+
+/* line 124, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.ribbon_outline {
+  background: none;
+  border: none;
+  height: 30px;
+  width: 30px;
+  background-image: url("/bookmark_border.png");
+  background-size: contain;
+  cursor: pointer;
+}
+
+/* line 134, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin-chart {
+  margin: auto;
+  width: 800px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 10px;
+}
+
+/* line 141, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin-buttons {
+  margin: auto;
+  border-radius: 6px;
+  width: 800px;
+  box-shadow: 0 4px 3px 0 rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  margin-bottom: 40px;
+}
+/* line 148, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin-buttons a:visited {
+  color: black;
+}
+
+/* line 153, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin-description {
+  width: 800px;
+  overflow: hidden;
+  padding-top: 10px;
+  margin-bottom: 40px;
+}
+
+/* line 160, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.tag {
+  display: inline-block;
+  border-style: solid 1px;
+  background: linear-gradient(to top right, #ffbf49, #ff921e);
+  border-radius: 3px;
+  padding: 3px;
+  margin: 5px;
+  margin-bottom: 60px;
+  font-family: 'Arial Rounded MT Bold';
+  font-weight: 500;
+  font-size: 12px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  line-height: 24px;
+  color: #ffffff;
+  position: relative;
+}
+/* line 177, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.tag:hover {
+  background-color: blue;
+}
+
+/* line 182, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin_info {
+  font-family: 'Arial Rounded MT Bold';
+  height: 100%;
+  margin: 0px;
+}
+/* line 186, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin_info .coin-head {
+  position: fixed;
+  z-index: 3;
+  top: 100px;
+  width: 100%;
+  background: linear-gradient(to top right, rgba(0, 255, 0, 0.3), rgba(22, 186, 197, 0.8));
+  font-family: aktiv-grotesk,sans-serif;
+  font-weight: 800;
+  text-shadow: 2px 2px 2px rgba(22, 186, 197, 0.6);
+  letter-spacing: .4px;
+  font-size: 34px;
+  padding: 10px;
+  padding-left: 20px;
+  display: inline-block;
+}
+/* line 200, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin_info .coin-head .coin-head-left {
+  max-width: 40%;
+  display: inline-block;
+  margin-left: 5%;
+}
+/* line 204, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin_info .coin-head .coin-head-left .coin-title {
+  font-size: 32px;
+}
+/* line 207, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin_info .coin-head .coin-head-left .coin-symbol {
+  color: #34aedc;
+  font-size: 14px;
+}
+/* line 212, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin_info .coin-head .coin-head-right {
+  max-width: 40%;
+  position: absolute;
+  display: inline-block;
+  right: 10%;
+}
+/* line 217, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin_info .coin-head .coin-head-right .follow-button {
+  display: inline-block;
+}
+/* line 220, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin_info .coin-head .coin-head-right .coin-price {
+  font-size: 24px;
+}
+/* line 223, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin_info .coin-head .coin-head-right .percent_change {
+  font-size: 15px;
+}
+/* line 230, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin_info .coin-body {
+  margin: 5%;
+  font-size: 18px;
+  font-family: 'Arial Rounded MT Bold';
+}
+/* line 234, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin_info .coin-body strong {
+  color: #5856d6;
+}
+/* line 237, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin_info .coin-body header {
+  width: 100% !important;
+}
+/* line 240, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin_info .coin-body h1 {
+  font-size: 75px;
+}
+/* line 243, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin_info .coin-body h2 {
+  font-size: 75px;
+}
+/* line 246, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin_info .coin-body h3 {
+  font-size: 65px;
+}
+/* line 249, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin_info .coin-body section {
+  width: 100% !important;
+}
+/* line 252, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin_info .coin-body section p {
+  font-size: 35px;
+}
+/* line 260, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin_info .coin-body .news-box {
+  width: 75%;
+  border-top: 3px solid #C8C8C8;
+  padding-top: 30px;
+  margin-top: 45px;
+}
+/* line 265, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin_info .coin-body .news-box .news-item {
+  overflow: hidden;
+  border: 1px solid #C8C8C8;
+  padding: 10px;
+  margin: 10px;
+  width: 500px;
+  height: 70px;
+}
+/* line 272, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin_info .coin-body .news-box .news-item .news-image {
+  float: left;
+  height: 100px;
+  width: 100px;
+}
+/* line 277, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/coins.scss */
+.coin_info .coin-body .news-box .news-item .news-title {
+  position: relative;
+  width: 390px;
+  top: 5px;
+  right: 10px;
+}
+/* line 5, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/feed_items.scss */
+h1 {
+  font-size: 24px;
+}
+
+/* line 8, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/feed_items.scss */
+input[type=checkbox] {
+  transform: scale(2);
+}
+
+/* line 12, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/feed_items.scss */
+.feed {
+  width: 75%;
+  margin: auto;
+}
+
+/* line 17, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/feed_items.scss */
+.update_news_button {
+  background-color: #dd3b4c;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
+
+/* line 29, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/feed_items.scss */
+.approve_button {
+  background-color: #2dc0ca;
+  /* Green */
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
+/* line 13, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/gallery.scss */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+@supports (display: grid) {
+  /* line 13, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/gallery.scss */
+  .gallery {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 200px));
+    grid-auto-rows: minmax(100px, 200px);
+    padding-top: 15px;
+    padding-bottom: 100px;
+  }
+}
+
+@supports not (display: grid) {
+  /* line 32, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/gallery.scss */
+  .gallery-cell {
+    flex: 1 0 auto;
+    flex-wrap: wrap;
+    margin: 5rem;
+  }
+}
+/* line 39, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/gallery.scss */
+.gallery-cell {
+  border: 1px solid #333;
+  background-color: #dd3b4c;
+  background-size: cover;
+}
+/* line 44, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/gallery.scss */
+.gallery-cell:before {
+  background: rgba(200, 26, 100, 0.6);
+  color: #fff;
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+}
+/* line 2, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/news.scss */
+.news_container {
+  font-family: 'Arial Rounded MT Bold';
+}
+/* line 4, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/news.scss */
+.news_container a {
+  text-decoration: none;
+  color: black;
+  font-size: 32px;
+}
+
+/* line 11, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/news.scss */
+.news_header {
+  position: fixed;
+  z-index: 3;
+  top: 100px;
+  width: 100%;
+  background: linear-gradient(to top right, rgba(0, 255, 0, 0.3), rgba(22, 186, 197, 0.8));
+  font-family: aktiv-grotesk,sans-serif;
+  font-weight: 800;
+  text-shadow: 2px 2px 2px rgba(22, 186, 197, 0.6);
+  letter-spacing: .4px;
+  font-size: 34px;
+  padding: 10px;
+  padding-left: 20px;
+}
+
+/* line 26, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/news.scss */
+.news_header_shade {
+  position: fixed;
+  top: 100px;
+  width: 100%;
+  height: 80px;
+  z-index: 2;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0), white 30%);
+}
+
+@media screen and (max-width: 700px) {
+  /* line 36, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/news.scss */
+  .news-cell-right {
+    display: none;
+  }
+}
+/* line 41, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/news.scss */
+.news_cell {
+  width: 800px;
+  height: 215px;
+  margin: auto;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  border-bottom: 2px solid #f1f1f1;
+  font-family: aktiv-grotesk,sans-serif;
+  font-weight: 800;
+  line-height: 1.09;
+  letter-spacing: -.7px;
+}
+/* line 52, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/news.scss */
+.news_cell .news-cell-left {
+  float: left;
+  text-align: center;
+  width: 35%;
+  font-size: 30px;
+  padding: 10px;
+}
+/* line 58, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/news.scss */
+.news_cell .news-cell-left .news-cell-attribution {
+  padding-top: 15px;
+  font-size: 15px;
+  font-weight: 100;
+  vertical-align: bottom;
+}
+/* line 65, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/news.scss */
+.news_cell .news-cell-center {
+  float: left;
+  width: 50%;
+  font-size: 18px;
+  font-weight: 100;
+  padding: 10px;
+  line-height: 1.39;
+  letter-spacing: .3px;
+}
+/* line 5, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/sessions.scss */
+.login {
+  width: 100%;
+  font-size: 36px;
+}
+/* line 9, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/sessions.scss */
+.login .login-field {
+  margin: auto;
+  width: 300px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+/* line 14, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/sessions.scss */
+.login .login-field .login-field-header {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background: linear-gradient(to top right, rgba(0, 255, 0, 0.3), rgba(22, 186, 197, 0.4));
+  color: #2dc0ca;
+  height: 50px;
+  padding-left: 15px;
+}
+/* line 21, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/sessions.scss */
+.login .login-field .login-field-header h1 {
+  margin: auto;
+  display: inline-block;
+}
+/* line 26, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/sessions.scss */
+.login .login-field .login-field-input {
+  margin: auto;
+  width: 200px;
+  padding: 20px;
+}
+/* line 30, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/sessions.scss */
+.login .login-field .login-field-input a {
+  text-decoration: none;
+  font-size: 14px;
+}
+/* line 34, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/sessions.scss */
+.login .login-field .login-field-input input {
+  width: 100%;
+  padding: 5px;
+  margin: 8px 0;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+/* line 41, /Users/scolobey/Desktop/Projects/ruby_projects/block-knight/app/assets/stylesheets/sessions.scss */
+.login .login-field .login-field-input input[type=button], .login .login-field .login-field-input input[type=submit], .login .login-field .login-field-input input[type=reset] {
+  background-color: #5c84bc;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  cursor: pointer;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+
+ */
+
+
+ /*Pallette
+ //aqua
+ color: #2dc0ca;
+ //blue suede
+ color: #22537a;
+ //raspberry
+ color: #dd3b4c;
+ // purple
+ color: #5856d6;
+ //yellow
+ color: #f4bc26;
+ //blue
+ color: #34aedc; */
+
+
+ body {
+     overflow-x: hidden;
+     font-family: 'Arial Rounded MT Bold';
+ }
+
+ #notice {
+   color: #dd3b4c;
+ }
+
+ .site-wrap {
+     min-width: 100%;
+     min-height: 100%;
+     background-color: ;
+     position: absolute;
+     top: 0px;
+     left: 0px;
+     z-index: 0;
+ }
+
+ .main {
+   display: block;
+   margin: auto;
+   width: 100%;
+   position: relative;
+   top: 140px;
+   background-color: ;
+ }
+
+.nav-underlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #22537a;
+  opacity: 0.5;
+  z-index: 2;
+}
+
+.navigation {
+    font-family: "Palatino";
+    font-size: 24px;
+    color: #5856d6;
+    list-style: none;
+    background: #2dc0ca;
+    width: 300px;
+    height: 100%;
+    right: 0px;
+    top: -30px;
+    padding: 30px;
+    box-shadow: -1px 0px 1px 1px #111;
+    padding-top: 100px;
+    position: fixed;
+    z-index: 2;
+}
+
+.navigation a {
+  color: #22537a;
+  text-decoration: none;
+}
+
+.navigation hr {
+    display: block;
+    margin-top: 40px;
+    margin-bottom: 35px;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border: 0;
+    border-top: 2px solid #f4bc26;
+}
+
+/*.navigation a:hover {
+  background-color: #ffffff;
+}*/
+
+.nav-trigger {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+
+label[for="nav-trigger"] {
+    position: fixed;
+    top: 30px;
+    right: 45px;
+    z-index: 3;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-image: url("/menu.png");
+    background-size: contain;
+}
+
+input[type=checkbox]:not(:checked) ~ .navigation {
+    right: -100%;
+}
+
+input[type=checkbox]:not(:checked) ~ .nav-underlay {
+    left: 100%;
+}
+
+input[type=checkbox]:checked ~ .nav-underlay {
+    overflow: hidden;
+}
+
+input[type=checkbox]:checked ~ .site-wrap {
+    position: fixed;
+}
+
+input[type=checkbox]:checked ~ label[for="nav-trigger"] {
+    background-image: url("/close.png");
+}
+/*
+ * CSS File of Material icons.
+ * CSS code based on:
+ * https://google.github.io/material-design-icons/#icon-font-for-the-web
+ */
+
+
+
+
+
+
+/* Use the font */
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/assets/MaterialIcons-Regular-8c998b4a9c0acbb9fe5dd572c206a5a33fdd5ca2b58db87fc3b893beac85068d.eot'); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url('/assets/MaterialIcons-Regular-a87d66c91b2e7dc5530aef76c03bd6a3d25ea5826110bf4803b561b811cc8726.woff2') format('woff2'),
+       url('/assets/MaterialIcons-Regular-c4a1baec300d09e03a8380b85918267ee80faae8e00c6c56b48e2e74b1d9b38d.woff') format('woff'),
+       url('/assets/MaterialIcons-Regular-b7f4a3ab562048f28dd1fa691601bc43363a61d0f876d16d8316c52e4f32d696.ttf') format('truetype');
+}
+
+/* Base class */
+.material-icons,
+.mi {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  text-transform: none;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+/* Rules for sizing the icon. */
+.material-icons.md-18, .mi.md-18 { font-size: 18px; }
+.material-icons.md-24, .mi.md-24 { font-size: 24px; }
+.material-icons.md-36, .mi.md-36 { font-size: 36px; }
+.material-icons.md-48, .mi.md-48 { font-size: 48px; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark, .mi.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive, .mi.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light, .mi.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive, .mi.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+/* Rules to rotate items */
+.material-icons.r90, .mi.r90 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.material-icons.r180, .mi.r180 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.material-icons.r270, .mi.r270 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+.material-icons.flip-horizontal, .mi.flip-horizontal {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
+  -webkit-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+.material-icons.flip-vertical, .mi.flip-vertical {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+  -webkit-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
