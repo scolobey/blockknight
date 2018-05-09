@@ -10,7 +10,7 @@ class NewsController < ApplicationController
   private
 
     def get_items
-      @news_items = FeedItem.where({approved: true}).order(:created_at).page params[:page]
+      @news_items = FeedItem.where({approved: true}).order(:created_at).reverse_order.page params[:page]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
