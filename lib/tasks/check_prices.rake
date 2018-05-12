@@ -11,9 +11,7 @@ task :check_prices => :environment do
 
       Coin.where(ticker: coin["symbol"]).
         first_or_create({name: coin["name"], ticker: coin["symbol"]}).
-        update(price: coin["price_usd"], percent_change: coin["percent_change_24h"]).
-        prices.create(time: Time.at(price["time"]), value: coin["price_usd"])
-
+        update(price: coin["price_usd"], percent_change: coin["percent_change_24h"])
     end
 
     puts Time.now
@@ -79,8 +77,19 @@ task :load_historical_prices => :environment do
   end
 end
 
-task :update_historical_prices => :environment do
-  # load prices for coins containing a time gap of > 12 hours.
+task :google_alerts => :environment do
+  require 'rss'
+  require 'open-uri'
+
+  url = 'https://www.google.com/alerts/feeds/04999850794818449576/7424705701789871207'
+
+  open(url) do |rss|
+    feed = RSS::Parser.parse(rss)
+    puts "Title: "
+    feed.items.each do |item|
+      puts "Item: #{item.title}"
+    end
+  end
 
 end
 
