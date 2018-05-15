@@ -13,10 +13,8 @@ class CoinsController < ApplicationController
       end
     end
 
-    @coins = Coin.where(archive: nil).where.not(id: @id_set)
-    # //
+    @coins = Coin.where(archive: [nil, 0]).where.not(id: @id_set)
 
-    get_news_items
   end
 
   # GET /coins/1
@@ -104,7 +102,6 @@ class CoinsController < ApplicationController
       @price_data = @coin.prices.each_with_object({}) do |price, hash|
         hash[price.time] = price.value
       end
-
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -112,7 +109,4 @@ class CoinsController < ApplicationController
       params.require(:coin).permit(:name, :ticker, :supply, :description, :team, :key_value_proposition, :twitter, :concerns, :community, :all_tags, :archive, :whitepaper)
     end
 
-    def get_news_items
-      @news_items = FeedItem.where({approved: true}).order(:updated_at).first(5)
-    end
 end
