@@ -89,7 +89,7 @@ class FeedItemsController < ApplicationController
       Time.now - self
     end
 
-    FeedItem.where("created_at > ?", 15.days.ago).delete_all
+    FeedItem.where("created_at > ?", 30.days.ago).delete_all
 
     Coin.where(ticker: ['BTC', 'ETH', 'LTC', 'MIOTA', 'XMR', 'GNO', 'REP', 'LSK', 'XRP', 'XLM', 'ADA', 'DASH', 'EOS', 'UKG', 'SC', 'GNT', 'GBYTE', 'OMG', 'ARK', 'UBQ', 'XVG', 'STORJ', 'KMD', 'BAT']).each do |record|
       puts record.ticker
