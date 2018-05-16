@@ -8,13 +8,16 @@
       <title>blockknight.com</title>
     <% end %>
 
-    <%= csrf_meta_tags %>
+    <% if content_for?(:description) %>
+      <meta name="description" content="<%= content_for(:description) %>" />
+    <% else %>
+      <meta name="description" content="Blockknight.com provides prices, news and in-depth descriptions of today's top cryptocurrencies."/>
+    <% end %>
 
-    <meta name="description" content="Blockknight.com provides news, prices, and in-depth descriptions for today's top cryptocurrencies."/>
-    <meta name="keywords" content="cryptocurrency, blockchain, smart contract, bitcoin, litecoin, iota, monero, tenx, gnosis, augur, stox, prediction market"/>
+    <%= csrf_meta_tags %>
     <meta charset="UTF-8">
     <meta name="google" content="notranslate">
-    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 

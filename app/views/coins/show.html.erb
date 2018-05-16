@@ -1,5 +1,9 @@
 <% content_for :title do %>
-  <title><%= @coin.name %> cryptocurrency news, price, and desciption - What is <%= @coin.ticker %>$ crypto? - blockknight.com</title>
+  <title><%= @coin.name %> (<%= @coin.ticker %>$) price, news and desciption - blockknight.com</title>
+<% end %>
+
+<% content_for :description do %>
+  <%= @coin.description %>
 <% end %>
 
 <div class="coin_info">
