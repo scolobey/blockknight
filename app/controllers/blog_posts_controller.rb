@@ -1,5 +1,4 @@
 class BlogPostsController < ApplicationController
-  before_action :admin_authorize
   before_action :get_blog_posts, :except => [:create, :show, :update, :destroy]
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
 
