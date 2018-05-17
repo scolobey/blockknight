@@ -21,7 +21,7 @@ end
 
 task :clean_delisted_coins => :environment do
   # Archives coins that have not been updated in the past 3 days.
-
+  puts 3.days.ago
   Coin.where("updated_at < ? AND archive != 1", 3.days.ago).each do |coin|
     puts coin.ticker
     coin.update(archive: 1)
