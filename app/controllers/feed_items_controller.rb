@@ -64,17 +64,18 @@ class FeedItemsController < ApplicationController
   end
 
   def approve_checked
-    if params[:feed_item_ids]
-      @feed_items.each do |item|
-        item.update_attributes({approved: false});
-      end
+    @feed_items.each do |item|
+      item.update_attributes({approved: false});
+    end
 
+    if params[:feed_item_ids]
       FeedItem.find(params[:feed_item_ids]).each do |item|
         item.update_attributes({approved: true});
       end
-
-      redirect_to feed_items_path
     end
+
+    redirect_to feed_items_path
+
   end
 
   def update_news
@@ -92,8 +93,6 @@ class FeedItemsController < ApplicationController
     FeedItem.where("created_at > ?", 30.days.ago).delete_all
 
     Coin.where(ticker: ['BTC', 'ETH', 'LTC', 'MIOTA', 'XMR', 'GNO', 'REP', 'LSK', 'XRP', 'XLM', 'ADA', 'DASH', 'EOS', 'UKG', 'SC', 'GNT', 'GBYTE', 'OMG', 'ARK', 'UBQ', 'XVG', 'STORJ', 'KMD', 'BAT']).each do |record|
-      puts record.ticker
-
       query = "https://www.google.com/search?q=#{record.name}%20cryptocurrency&source=lnms&tbm=nws&sa=X&ved=0ahUKEwiW2ZSm5bzVAhUIzGMKHV_gAOIQ_AUICigB&biw=1371&bih=727"
       doc = Nokogiri::HTML(open(query))
 
