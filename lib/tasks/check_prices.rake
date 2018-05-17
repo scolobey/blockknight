@@ -21,10 +21,18 @@ end
 
 task :clean_delisted_coins => :environment do
   # Archives coins that have not been updated in the past 3 days.
-  puts 3.days.ago
   Coin.where("updated_at < ?", 3.days.ago).each do |coin|
-    puts coin.ticker
+    unless coin.archive == 1
+      puts 'archiving ' + coin.ticker
+      coin.update(archive: 1)
 
+      coin.feed_items.create({
+        title: coin.ticker + '$ delisted',
+        description: 'It appears that ' + coin.name + ' was recently delisted from coinmarketcap.',
+        url: 'http://blockknight.com/news',
+        image: 'http://sonomasun.com/wp-content/uploads/2016/12/game_over.png'
+      })
+    end
   end
 
 end
