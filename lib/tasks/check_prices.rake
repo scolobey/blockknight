@@ -24,14 +24,14 @@ task :clean_delisted_coins => :environment do
   puts 3.days.ago
   Coin.where("updated_at < ? AND archive != 1", 3.days.ago).each do |coin|
     puts coin.ticker
-    coin.update(archive: 1)
-
-    coin.feed_items.create({
-      title: coin.ticker + '$ delisted',
-      description: 'It appears that ' + coin.name + ' was recently delisted from coinmarketcap.',
-      url: 'http://blockknight.com/news',
-      image: 'http://sonomasun.com/wp-content/uploads/2016/12/game_over.png'
-    })
+    # coin.update(archive: 1)
+    #
+    # coin.feed_items.create({
+    #   title: coin.ticker + '$ delisted',
+    #   description: 'It appears that ' + coin.name + ' was recently delisted from coinmarketcap.',
+    #   url: 'http://blockknight.com/news',
+    #   image: 'http://sonomasun.com/wp-content/uploads/2016/12/game_over.png'
+    # })
   end
 
 end
