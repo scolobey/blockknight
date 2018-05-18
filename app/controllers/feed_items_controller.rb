@@ -83,7 +83,7 @@ class FeedItemsController < ApplicationController
     require 'open-uri'
 
     # First remove news that's too old to care about.
-    FeedItem.where("created_at > ?", 30.days.ago).delete_all
+    FeedItem.where("created_at < ?", 30.days.ago).delete_all
 
     Coin.where(ticker: ['BTC', 'ETH', 'LTC', 'MIOTA', 'XMR', 'GNO', 'REP', 'LSK', 'XRP', 'XLM', 'ADA', 'DASH', 'EOS', 'UKG', 'SC', 'GNT', 'GBYTE', 'OMG', 'ARK', 'UBQ', 'XVG', 'STORJ', 'KMD', 'BAT'])
     .each do |record|
