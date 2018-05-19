@@ -47,7 +47,9 @@
       <div class="coin-description">
         <p><%= @coin.description %></p>
       </div>
-      <a href=<%= @coin.whitepaper %>><%= material_icon.description.md_48 %></a>
+      <% if @coin.whitepaper? %>
+        <a title="whitepaper" href=<%= @coin.whitepaper %>><%= material_icon.description.md_48 %></a>
+      <% end %>
     </div>
 
     <div class="coin-chart">
@@ -81,6 +83,8 @@
     <%= link_to 'Edit', edit_coin_path(@coin) %>
   <% end %>
 
-
+  <br>
+  <br>
+  <br>
 
 </div>
