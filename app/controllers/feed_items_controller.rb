@@ -103,7 +103,7 @@ class FeedItemsController < ApplicationController
         # Use this line to blacklist certain news organizations
         if ['forbes','cnbc', 'fortune'].any? { |domain| link.to_s.include?(domain) }
           puts 'news ignored (domain):' + link.to_s
-        elsif ['market cap','trading volume', 'technical analysis'].any? { |subject| title.downcase.include?(subject) }
+        elsif ['market cap','trading volume', 'technical analysis', 'price tops'].any? { |subject| title.downcase.include?(subject) }
           puts 'news ignored (title):' + title
         else
           news = {
