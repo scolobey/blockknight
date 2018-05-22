@@ -67,6 +67,16 @@
   </div>
 
   <div class="field">
+    <%= form.label :website %>
+    <%= form.text_field :website, id: :website, placeholder: "website URL" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :github %>
+    <%= form.text_field :github, id: :github, placeholder: "github URL" %>
+  </div>
+
+  <div class="field">
     <%= form.label :archive %>
     <%= form.check_box :archive, placeholder: "Archived" %>
   </div>

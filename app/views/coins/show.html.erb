@@ -47,9 +47,23 @@
       <div class="coin-description">
         <p><%= @coin.description %></p>
       </div>
+
       <% if @coin.whitepaper? %>
-        <a title="whitepaper" href=<%= @coin.whitepaper %>><%= material_icon.description.md_48 %></a>
+        <a title="whitepaper" href=<%= @coin.whitepaper %>><%= fa_icon "file" %></a>
       <% end %>
+
+      <% if @coin.website? %>
+        <a title="website" href=<%= @coin.website %>><%= fa_icon "home" %></a>
+      <% end %>
+
+      <% if @coin.github? %>
+        <a title="github" href=<%= @coin.github %>><%= fa_icon "github" %></a>
+      <% end %>
+
+      <% if @coin.twitter? %>
+        <a title="twitter" href=<%= @coin.twitter %>><%= fa_icon "twitter" %></a>
+      <% end %>
+
     </div>
 
     <div class="coin-chart">

@@ -76,6 +76,8 @@ GEM
     faker (1.8.7)
       i18n (>= 0.7)
     ffi (1.9.18)
+    font-awesome-rails (4.7.0.4)
+      railties (>= 3.2, < 6.0)
     formatador (0.2.5)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -131,8 +133,6 @@ GEM
     lumberjack (1.0.12)
     mail (2.7.0)
       mini_mime (>= 0.1.1)
-    material_icons (2.2.1)
-      railties (>= 3.2)
     method_source (0.9.0)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
@@ -271,6 +271,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   factory_bot_rails
   faker
+  font-awesome-rails
   groupdate
   guard-rspec
   httparty
@@ -279,7 +280,6 @@ DEPENDENCIES
   launchy
   listen (>= 3.0.5, < 3.2)
   lograge
-  material_icons
   mysql2 (>= 0.3.18, < 0.5)
   nokogiri
   puma (~> 3.7)
