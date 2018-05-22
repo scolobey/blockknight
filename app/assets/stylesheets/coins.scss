@@ -59,6 +59,7 @@
 }
 
 .coin-list-header {
+  pointer-events: none;
   position: fixed;
   top: 100px;
   width: 100%;
@@ -72,6 +73,7 @@
 }
 
 .coin-list-header-shade {
+  pointer-events: none;
   position: fixed;
   top: 100px;
   width: 100%;
@@ -88,6 +90,7 @@
     justify-content: center;
   }
   .coin-list-body-row {
+    pointer-events: auto;
     border-bottom: 1px solid #eef1f5;
     color: #444956;
     font-size: 14px;
