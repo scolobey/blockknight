@@ -13,7 +13,7 @@ class CoinsController < ApplicationController
       end
     end
 
-    @coins = Coin.where(archive: [nil, 0]).where.not(id: @id_set)
+    @coins = Coin.where(archive: [nil, 0]).where.not(id: @id_set).order(:rank)
 
   end
 

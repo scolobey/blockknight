@@ -11,7 +11,7 @@ task :check_prices => :environment do
 
       Coin.where(ticker: coin["symbol"]).
         first_or_create({name: coin["name"], ticker: coin["symbol"]}).
-        update(price: coin["price_usd"], percent_change: coin["percent_change_24h"])
+        update(price: coin["price_usd"], rank: coin["rank"], percent_change: coin["percent_change_24h"])
     end
 
     puts Time.now
