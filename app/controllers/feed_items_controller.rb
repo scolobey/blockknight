@@ -85,7 +85,7 @@ class FeedItemsController < ApplicationController
     # First remove news that's too old to care about.
     FeedItem.where("created_at < ?", 30.days.ago).delete_all
 
-    Coin.where(ticker: ['BTC', 'ETH', 'LTC', 'MIOTA', 'XMR', 'GNO', 'REP', 'LSK', 'XRP', 'XLM', 'ADA', 'DASH', 'EOS', 'UKG', 'SC', 'GNT', 'GBYTE', 'OMG', 'ARK', 'UBQ', 'XVG', 'STORJ', 'KMD', 'BAT'])
+    Coin.where(ticker: ['BTC', 'ETH', 'LTC', 'MIOTA', 'XMR', 'GNO', 'REP', 'LSK', 'XRP', 'XLM', 'ADA', 'DASH', 'EOS', 'SC', 'GNT', 'OMG', 'ARK', 'UBQ', 'XVG', 'STORJ', 'KMD', 'BAT'])
     .each do |record|
 
       query = "https://www.google.com/search?q=#{record.name}%20cryptocurrency&source=lnms&tbm=nws&sa=X&ved=0ahUKEwiW2ZSm5bzVAhUIzGMKHV_gAOIQ_AUICigB&biw=1371&bih=727"
@@ -103,7 +103,7 @@ class FeedItemsController < ApplicationController
         # Use this line to blacklist certain news organizations
         if ['forbes','cnbc', 'fortune'].any? { |domain| link.to_s.include?(domain) }
           puts 'news ignored (domain):' + link.to_s
-        elsif ['market cap','trading volume', 'technical analysis', 'price tops', 'trading up', 'volume hits', 'price at', 'price up'].any? { |subject| title.downcase.include?(subject) }
+        elsif ['market cap','trading volume', 'technical analysis', 'price tops', 'price hits', 'price reaches', 'trading up', 'trading down', 'trading close to', 'hits $', 'volume hits', 'volume reaches', 'price at', 'price up'].any? { |subject| title.downcase.include?(subject) }
           puts 'news ignored (title):' + title
         else
           news = {

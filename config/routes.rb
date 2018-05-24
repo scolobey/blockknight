@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :users
+  
   root "coins#index"
   resources :coins do
     collection do
