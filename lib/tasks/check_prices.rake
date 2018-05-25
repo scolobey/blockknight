@@ -10,9 +10,9 @@ task :check_prices => :environment do
     @response.each do|coin|
 
       Coin.where(ticker: coin["symbol"]).
-        first_or_create({name: coin["name"], ticker: coin["symbol"]}).
+        first_or_create({name: coin["name"].strip, ticker: coin["symbol"].strip}).
         update(price: coin["price_usd"], rank: coin["rank"], percent_change: coin["percent_change_24h"])
-    end
+      end
 
     puts Time.now
     sleep 60
@@ -115,6 +115,12 @@ task :google_alerts => :environment do
     end
   end
 
+end
+
+task :fix_delisted => :environment do
+  Coin.where(rank: nil).each do |coin|
+    coin.update(archive: 1)
+  end
 end
 
 task :meltdown => :environment do
