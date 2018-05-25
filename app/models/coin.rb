@@ -7,7 +7,6 @@ class Coin < ApplicationRecord
   has_many :tags, through: :tag_relationships
   has_many :prices
   validates :ticker, presence: true
-  validates_uniqueness_of :name
   after_initialize :init
   serialize :price_data, Array
 
