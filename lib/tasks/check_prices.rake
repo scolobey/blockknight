@@ -54,13 +54,18 @@ task :tweet_news => :environment do
   end
 
   entry = FeedItem.where(approved: 1).where(tweeted: nil).order(:created_at).first
-  url = entry.url
-  description = entry.title
-  coin = entry.coin.ticker
-  string = "#{description} - #{url} $#{coin}"
 
-  entry.update(tweeted: true)
-  client.update(string)
+  if entry
+    url = entry.url
+    description = entry.title
+    coin = entry.coin.ticker
+    string = "#{description} - #{url} $#{coin}"
+
+    entry.update(tweeted: true)
+
+    puts string
+    # client.update(string)
+  end
 end
 
 task :clear_twitter_queue => :environment do
