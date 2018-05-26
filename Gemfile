@@ -37,7 +37,7 @@ gem 'bcrypt', '~> 3.1.7'
 #Project specific gems
 gem 'httparty'
 gem "font-awesome-rails"
-# gem 'twitter'
+gem 'twitter'
 gem 'nokogiri'
 gem 'rails_12factor', group: :production
 gem 'kaminari'

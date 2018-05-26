@@ -45,7 +45,7 @@ task :clean_delisted_coins => :environment do
 
 end
 
-task :tweet_winner => :environment do
+task :tweet_news => :environment do
   client = Twitter::REST::Client.new do |config|
     config.consumer_key        = "jBC93V7ouNdAA3zDimHI4jlv9"
     config.consumer_secret     = "6hpCDKwk2yIj29eU6pO59cXOhuscy0CXSdusZBBsiUCOnWEdSu"
@@ -53,9 +53,20 @@ task :tweet_winner => :environment do
     config.access_token_secret = "eXyQ6MJDVRGilXG9UhSDMTIomhnuohGflZ10NoHDyaPuR"
   end
 
-  entry = FeedItem.where({approved: true}).order(:created_at).first
-  string = "#{entry[:description]} www.blockknight.com/news"
+  entry = FeedItem.where(approved: 1).where(tweeted: nil).order(:created_at).first
+  url = entry.url
+  description = entry.title
+  coin = entry.coin.ticker
+  string = "#{description} - #{url} $#{coin}"
+
+  entry.update(tweeted: true)
   client.update(string)
+end
+
+task :clear_twitter_queue => :environment do
+  FeedItem.all.each do |item|
+    item.update(tweeted: true)
+  end
 end
 
 task :tweet_loser => :environment do
