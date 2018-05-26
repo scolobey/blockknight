@@ -11,7 +11,7 @@ class Coin < ApplicationRecord
   serialize :price_data, Array
 
   def init
-    self.prices_updated_at = Time.now - 10.years
+
   end
 
   def all_tags=(names)

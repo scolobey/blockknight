@@ -87,25 +87,30 @@ task :tweet_loser => :environment do
   client.update(string)
 end
 
+# This should work for now, but it may be more efficient to check for price gaps
+# and integrate price hunting with the price checking.
 task :load_historical_prices => :environment do
   require 'httparty'
 
+  timespan = 60*60*24*730
+  current_time = Time.now
+
+  #get a list of coins to update (not archived, ordered by last update)
   @coin_set = assemble_update_list()
 
   @coin_set.each do |coin|
-    puts coin.name
-    days = 730
 
-    if coin.prices_updated_at
-      timeDifference = Time.now.to_date - coin.prices_updated_at.to_date
-      if timeDifference < days
-        days = timeDifference + 1
+    if coin.previous_update
+      timeDifference = current_time - coin.previous_update
+
+      if timeDifference < timespan
+        timespan = (timeDifference + 1.day).to_i
       end
     end
 
-    coin.update({prices_updated_at: Time.now})
+    puts coin.ticker
 
-    @response = HTTParty.get('https://min-api.cryptocompare.com/data/histoday?aggregate=1&e=CCCAGG&extraParams=CryptoCompare&fsym=' + coin.ticker + '&limit=' + days.to_s + '&tryConversion=false&tsym=USD')
+    @response = HTTParty.get('https://min-api.cryptocompare.com/data/histoday?aggregate=1&e=CCCAGG&extraParams=CryptoCompare&fsym=' + coin.ticker + '&limit=' + timespan.to_s + '&tryConversion=false&tsym=USD')
 
     @response['Data'].each do|price|
       coin.prices.create(time: Time.at(price["time"]), value: price["close"])
@@ -116,10 +121,10 @@ task :load_historical_prices => :environment do
 end
 
 def assemble_update_list
-  coin_set_updated = Coin.where("archive != ? or archive is null", 1).where("prices_updated_at is not null").order("prices_updated_at DESC")
-  coin_set_null = Coin.where("archive != ? or archive is null", 1).where("prices_updated_at is null")
+  coin_set_updated = Coin.where("archive != ? or archive is null", 1).where("previous_update is not null").order("previous_update DESC")
+  coin_set_null = Coin.where("archive != ? or archive is null", 1).where("previous_update is null")
 
-  coin_set_null + coin_set_updated.first(10)
+  (coin_set_null + coin_set_updated).first(10)
 end
 
 task :google_alerts => :environment do
