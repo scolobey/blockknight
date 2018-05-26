@@ -90,9 +90,7 @@ end
 task :load_historical_prices => :environment do
   require 'httparty'
 
-  @coin_set_updated = Coin.where("prices_updated_at is not null").order("prices_updated_at DESC")
-  @coin_set_null = Coin.where("prices_updated_at is null")
-  @coin_set = @coin_set_null + @coin_set_updated
+  @coin_set = assemble_update_list()
 
   @coin_set.each do |coin|
     puts coin.name
@@ -115,6 +113,13 @@ task :load_historical_prices => :environment do
 
     sleep 10
   end
+end
+
+def assemble_update_list
+  coin_set_updated = Coin.where("archive != ? or archive is null", 1).where("prices_updated_at is not null").order("prices_updated_at DESC")
+  coin_set_null = Coin.where("archive != ? or archive is null", 1).where("prices_updated_at is null")
+
+  coin_set_null + coin_set_updated.first(10)
 end
 
 task :google_alerts => :environment do
