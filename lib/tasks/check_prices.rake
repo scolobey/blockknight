@@ -63,8 +63,7 @@ task :tweet_news => :environment do
 
     entry.update(tweeted: true)
 
-    puts string
-    # client.update(string)
+    client.update(string)
   end
 end
 
