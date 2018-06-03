@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :users
-  
+
   root "coins#index"
   resources :coins do
     collection do
@@ -30,6 +30,8 @@ Rails.application.routes.draw do
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
+
+  get :search, controller: :search
 
   namespace :admin do
     get '', to: 'dashboard#index', as: '/'

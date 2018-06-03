@@ -86,6 +86,25 @@ task :tweet_loser => :environment do
   client.update(string)
 end
 
+task :price_history, [:coin_id] => :environment do |t, args|
+  require 'httparty'
+  puts 'loading price data for coin: ' + args[:coin_id]
+
+  coin = Coin.find(args[:coin_id])
+  coin.prices.delete_all
+
+  @response = HTTParty.get('https://min-api.cryptocompare.com/data/histoday?aggregate=1&e=CCCAGG&extraParams=CryptoCompare&fsym=' + coin.ticker + '&limit=750&tryConversion=false&tsym=USD')
+
+  if @response
+    @response['Data'].each do|price|
+      coin.prices.create(time: Time.at(price["time"]), value: price["close"])
+    end
+    puts 'prices loaded for coin: ' + args[:coin_id]
+  else
+    puts 'No data available for coin: ' + args[:coin_id]
+  end
+end
+
 # This should work for now, but it may be more efficient to check for price gaps
 # and integrate price hunting with the price checking.
 task :load_historical_prices => :environment do

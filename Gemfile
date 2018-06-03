@@ -46,6 +46,8 @@ gem 'groupdate'
 gem "lograge"
 gem 'newrelic_rpm'
 gem 'scout_apm'
+gem 'jquery-rails'
+gem 'ransack'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
