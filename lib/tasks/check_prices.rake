@@ -86,11 +86,10 @@ task :tweet_loser => :environment do
   client.update(string)
 end
 
-task :price_history, [:coin_id] => :environment do |t, args|
+def price_history(coin_id)
   require 'httparty'
-  puts 'loading price data for coin: ' + args[:coin_id]
 
-  coin = Coin.find(args[:coin_id])
+  coin = Coin.find(coin_id)
   coin.prices.delete_all
 
   @response = HTTParty.get('https://min-api.cryptocompare.com/data/histoday?aggregate=1&e=CCCAGG&extraParams=CryptoCompare&fsym=' + coin.ticker + '&limit=750&tryConversion=false&tsym=USD')
@@ -99,9 +98,21 @@ task :price_history, [:coin_id] => :environment do |t, args|
     @response['Data'].each do|price|
       coin.prices.create(time: Time.at(price["time"]), value: price["close"])
     end
-    puts 'prices loaded for coin: ' + args[:coin_id]
+    puts 'prices loaded for coin: ' + coin_id.to_s
   else
-    puts 'No data available for coin: ' + args[:coin_id]
+    puts 'No data available for coin: ' + coin_id.to_s
+  end
+end
+
+# cryptocompare enforces a 6k/hour request limit. Way more than we need.
+task :update_price_history => :environment do
+  @coin_set = assemble_update_list()
+
+  @coin_set.each do |coin|
+    puts 'loading price data for: ' + coin.ticker
+    price_history(coin.id)
+    coin.update(previous_update: Time.now)
+    sleep 5
   end
 end
 
@@ -139,10 +150,10 @@ task :load_historical_prices => :environment do
 end
 
 def assemble_update_list
-  coin_set_updated = Coin.where("archive != ? or archive is null", 1).where("previous_update is not null").order("previous_update DESC")
+  coin_set_updated = Coin.where("archive != ? or archive is null", 1).where("previous_update is not null").order(previous_update: :asc)
   coin_set_null = Coin.where("archive != ? or archive is null", 1).where("previous_update is null")
 
-  (coin_set_null + coin_set_updated).first(10)
+  (coin_set_updated + coin_set_null).first(100)
 end
 
 task :google_alerts => :environment do
